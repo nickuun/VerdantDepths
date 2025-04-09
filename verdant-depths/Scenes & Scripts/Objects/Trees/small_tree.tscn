@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfp63gg2w0tny"]
+
+[ext_resource type="Texture2D" uid="uid://c1ctfkeu24o0c" path="res://Sprites/Environment/Objects/Oak_Tree_Small.png" id="1_xneul"]
+[ext_resource type="PackedScene" uid="uid://bhqy2283mvyvj" path="res://Scenes & Scripts/Helpers/Components/hurt_component.tscn" id="2_nf57l"]
+[ext_resource type="Script" uid="uid://2u7h40c56dw3" path="res://Scenes & Scripts/Objects/Trees/small_tree.gd" id="2_xneul"]
+[ext_resource type="PackedScene" uid="uid://ctm3m2fwm33h8" path="res://Scenes & Scripts/Helpers/Components/damage_component.tscn" id="3_igxyf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xneul"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igxyf"]
+size = Vector2(6, 18.5)
+
+[node name="SmallTree" type="Sprite2D"]
+position = Vector2(0, -12)
+texture = ExtResource("1_xneul")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 40)
+script = ExtResource("2_xneul")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_xneul")
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_nf57l")]
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 2.25)
+shape = SubResource("RectangleShape2D_igxyf")
+debug_color = Color(0.533322, 0.567363, 0.152145, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_igxyf")]
+max_damage = 3

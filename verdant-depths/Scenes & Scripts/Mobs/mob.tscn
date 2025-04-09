@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc6pr8it0k1ix"]
+
+[ext_resource type="Script" uid="uid://bbnxqk57annwi" path="res://Scenes & Scripts/Mobs/mob.gd" id="1_b7dbg"]
+[ext_resource type="Texture2D" uid="uid://h2rrvk3p0jar" path="res://icon.svg" id="2_36xav"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fh677"]
+
+[node name="Mob" type="CharacterBody2D"]
+script = ExtResource("1_b7dbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fh677")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.164063, 0.226563)
+texture = ExtResource("2_36xav")
+
+[node name="Timer" type="Timer" parent="."]
