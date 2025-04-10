@@ -725,13 +725,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b842k"]
-radius = 5.5
+radius = 4.5
 height = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nh6bo"]
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_b842k")
@@ -744,7 +745,8 @@ animation = &"chop_side"
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -8.5)
+position = Vector2(-0.5, -6)
+rotation = 1.57079
 shape = SubResource("CapsuleShape2D_b842k")
 
 [node name="AttackOffsetNode" type="Node2D" parent="."]
