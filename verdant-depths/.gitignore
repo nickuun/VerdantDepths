@@ -1,3 +1,20 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.import/
+.export/
+*.import
+*.tmp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Godot build artifacts
+*.godot-export
+
+# Optional: Logs or crash dumps
+*.log
