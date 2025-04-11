@@ -11,3 +11,6 @@ var last_direction: Vector2  # Track last direction for idle animation
 #func _physics_process(delta):
 	#var direction = Input.get_vector("left", "right", "up", "down")
 	#last_direction = direction
+
+func _ready() -> void:
+	randomize()
