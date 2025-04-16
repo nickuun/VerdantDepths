@@ -55,13 +55,17 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	walks_remaining = randi_range(1, 5)
-	if randf() < 0.5:
-		animated_sprite_2d.play("walk")
+	if animated_sprite_2d.sprite_frames.has_animation("walk_alternative"):
+		if randf() < 0.5:
+			animated_sprite_2d.play("walk")
+		else:
+			animated_sprite_2d.play("walk_alternative")
 	else:
-		animated_sprite_2d.play("walk_alternative")
+		animated_sprite_2d.play("walk")
 	set_movement_target()
 
 func _on_exit() -> void:
+	
 	animated_sprite_2d.stop()
 	
 func on_safe_velocity_computed(safe_velocity:Vector2) -> void:

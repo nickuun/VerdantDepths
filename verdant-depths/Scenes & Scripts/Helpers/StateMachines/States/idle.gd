@@ -24,8 +24,11 @@ func _on_next_transitions() -> void:
 		transition.emit("Walk")
 
 func _on_enter() -> void:
-	if randf() < 0.5:
-		animated_sprite_2d.play("idle_alternative")
+	if animated_sprite_2d.sprite_frames.has_animation("idle_alternative"):
+		if randf() < 0.5:
+			animated_sprite_2d.play("idle_alternative")
+		else:
+			animated_sprite_2d.play("idle")
 	else:
 		animated_sprite_2d.play("idle")
 	idle_state_timeout = false

@@ -56,5 +56,11 @@ position = Vector2(213, 136)
 [node name="Chicken4" parent="Chickens" instance=ExtResource("3_e4h2p")]
 position = Vector2(195, 100)
 
+[node name="Chicken5" parent="Chickens" instance=ExtResource("3_e4h2p")]
+position = Vector2(159, 99)
+
+[node name="Chicken6" parent="Chickens" instance=ExtResource("3_e4h2p")]
+position = Vector2(132, 124)
+
 [node name="Chicken2" parent="Chickens" instance=ExtResource("3_e4h2p")]
 position = Vector2(188, 123)
