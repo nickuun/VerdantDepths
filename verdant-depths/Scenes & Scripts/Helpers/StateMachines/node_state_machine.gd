@@ -29,6 +29,7 @@ func _process(delta : float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if current_node_state:
 		current_node_state._on_physics_process(delta)
 		current_node_state._on_next_transitions()

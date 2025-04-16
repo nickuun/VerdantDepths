@@ -1,0 +1,227 @@
+[gd_scene load_steps=34 format=3 uid="uid://i6reumwvwquu"]
+
+[ext_resource type="Script" uid="uid://dto8c1swc7no7" path="res://Scenes & Scripts/Characters/NPCs/npc_sprite.gd" id="1_moxff"]
+[ext_resource type="Texture2D" uid="uid://co2djundvevn2" path="res://Sprites/Characters/Human/WALKING/base_walk_strip8.png" id="1_pvik4"]
+[ext_resource type="Texture2D" uid="uid://bxr0srygb15cd" path="res://Sprites/Characters/Human/WALKING/bowlhair_walk_strip8.png" id="2_moxff"]
+[ext_resource type="Shader" uid="uid://c3o8uvoifd8ts" path="res://Scenes & Scripts/Shaders/colour_swap.gdshader" id="3_rn60m"]
+[ext_resource type="Texture2D" uid="uid://h4kf0fdhfiq2" path="res://Sprites/Characters/Human/WALKING/tools_walk_strip8.png" id="4_7ml2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ml2m"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn60m"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p51e"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh8v3"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fth44"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ufu"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0t8y"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjkh0"]
+atlas = ExtResource("1_pvik4")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0nhi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ml2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn60m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p51e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh8v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fth44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ufu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0t8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjkh0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0p51e"]
+shader = ExtResource("3_rn60m")
+shader_parameter/from_colors = Color(0.733333, 0.427451, 0.32549, 1)
+shader_parameter/to_colors = Color(0.665257, 0.392767, 0.311461, 1)
+shader_parameter/from_colors_1 = Color(0.458824, 0.235294, 0.223529, 1)
+shader_parameter/to_colors_1 = Color(0.458824, 0.235294, 0.223529, 1)
+shader_parameter/from_colors_2 = Color(0.247059, 0.152941, 0.192157, 1)
+shader_parameter/to_colors_2 = Color(0.247059, 0.152941, 0.192157, 1)
+shader_parameter/from_colors_3 = Color(0, 0, 0, 1)
+shader_parameter/to_colors_3 = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_813pj"]
+atlas = ExtResource("2_moxff")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2yo3"]
+atlas = ExtResource("2_moxff")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqw8n"]
+atlas = ExtResource("2_moxff")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2hwc"]
+atlas = ExtResource("2_moxff")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g73s"]
+atlas = ExtResource("2_moxff")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7a34"]
+atlas = ExtResource("2_moxff")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70yqf"]
+atlas = ExtResource("2_moxff")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib871"]
+atlas = ExtResource("2_moxff")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24nq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_813pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2yo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqw8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2hwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g73s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7a34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70yqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib871")
+}],
+"loop": true,
+"name": &"style1_walk",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0nhi"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24nq2"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw528"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy7sr"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4q1y"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk11j"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osedj"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfmx8"]
+atlas = ExtResource("4_7ml2m")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isveo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0nhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24nq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw528")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy7sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4q1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk11j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osedj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfmx8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="NpcSprite" type="Node2D"]
+script = ExtResource("1_moxff")
+play_preview = false
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u0nhi")
+animation = &"walk"
+
+[node name="Hair" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0p51e")
+sprite_frames = SubResource("SpriteFrames_24nq2")
+animation = &"style1_walk"
+
+[node name="Tool" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_isveo")
+animation = &"walk"

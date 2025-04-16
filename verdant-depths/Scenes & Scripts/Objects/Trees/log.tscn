@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b408ga81q7xm"]
+
+[ext_resource type="Texture2D" uid="uid://dwjocfxoshmaw" path="res://Sprites/Environment/Objects/Basic_Grass_Biom_things.png" id="1_wrlcy"]
+[ext_resource type="PackedScene" uid="uid://bn12wkd2fufhy" path="res://Scenes & Scripts/Helpers/Components/collectable_component.tscn" id="2_qqnm3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfbuw"]
+radius = 9.0
+
+[node name="Log" type="Sprite2D"]
+texture = ExtResource("1_wrlcy")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_qqnm3")]
+collectable_name = "Log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_bfbuw")
+debug_color = Color(0.154904, 0.629953, 0.402598, 0.42)

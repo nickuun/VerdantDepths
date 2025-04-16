@@ -6,6 +6,9 @@
 *.import
 *.tmp
 
+#Aseprite
+**/SteamEmu*
+
 # OS-specific
 .DS_Store
 Thumbs.db
