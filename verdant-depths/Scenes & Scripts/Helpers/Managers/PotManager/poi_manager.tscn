@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbt7qjeemh0t5"]
+
+[ext_resource type="Script" uid="uid://d0utgk73yttml" path="res://Scenes & Scripts/Helpers/Managers/PotManager/poi_manager.gd" id="1_13o8o"]
+
+[node name="PoiManager" type="Node2D" groups=["poi_manager"]]
+script = ExtResource("1_13o8o")
+
+[node name="Town_Square" type="Node2D" parent="."]
+position = Vector2(-53, 305)
+
+[node name="Home" type="Node2D" parent="."]
+position = Vector2(52, 476)
+
+[node name="Bench" type="Node2D" parent="."]
+position = Vector2(331, 535)

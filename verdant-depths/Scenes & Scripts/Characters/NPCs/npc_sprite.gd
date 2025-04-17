@@ -38,3 +38,7 @@ func _play_animation(anim: String) -> void:
 	if tool_sprite.sprite_frames.has_animation(anim):
 		tool_sprite.play(anim)
 	
+func stop():
+	body_sprite.stop()
+	hair_sprite.stop()
+	tool_sprite.stop()

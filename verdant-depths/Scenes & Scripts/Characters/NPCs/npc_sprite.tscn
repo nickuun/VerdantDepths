@@ -209,7 +209,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="NpcSprite" type="Node2D"]
+[node name="NpcSprite" type="AnimatedSprite2D"]
 script = ExtResource("1_moxff")
 play_preview = false
 
