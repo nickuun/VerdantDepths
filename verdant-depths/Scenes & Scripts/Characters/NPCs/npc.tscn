@@ -74,14 +74,17 @@ script = ExtResource("3_sxd2r")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../NpcSprite")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+min_speed = 50.0
+max_speed = 50.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
+path_desired_distance = 4.0
+target_desired_distance = 20.0
 navigation_layers = 4
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 5.0
-debug_path_custom_color = Color(1, 0.298039, 1, 1)
+radius = 3.0
+debug_path_custom_color = Color(1, 0.298039, 0.172549, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

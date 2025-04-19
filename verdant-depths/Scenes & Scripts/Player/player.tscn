@@ -793,4 +793,4 @@ animatedSprite = NodePath("../../AnimatedSprite2D")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -6.29)
-radius = 6.0
+radius = 3.0

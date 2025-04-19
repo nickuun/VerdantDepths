@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 
 func _play_animation(anim: String) -> void:
 	
-	if not Engine.is_editor_hint():
-		return
+	#if not Engine.is_editor_hint():
+		#return
 	if body_sprite.sprite_frames.has_animation(anim):
 		body_sprite.play(anim)
 	if hair_sprite.sprite_frames.has_animation("style1_" + anim):
@@ -42,3 +42,8 @@ func stop():
 	body_sprite.stop()
 	hair_sprite.stop()
 	tool_sprite.stop()
+
+func set_flip_h(enabled: bool) -> void:
+	body_sprite.flip_h = enabled
+	hair_sprite.flip_h = enabled
+	tool_sprite.flip_h = enabled

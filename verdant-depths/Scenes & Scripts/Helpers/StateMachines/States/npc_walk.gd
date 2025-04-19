@@ -46,8 +46,8 @@ func _on_physics_process(_delta: float) -> void:
 	var vel = dir * speed
 
 	# flip sprite on X
-	animated_sprite_2d.flip_h = vel.x < 0
-
+	animated_sprite_2d.set_flip_h(vel.x < 0)	
+	
 	if navigation_agent_2d.avoidance_enabled:
 		navigation_agent_2d.velocity = vel
 	else:
@@ -56,7 +56,7 @@ func _on_physics_process(_delta: float) -> void:
 
 func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 	character.velocity = safe_velocity
-	animated_sprite_2d.flip_h = safe_velocity.x < 0
+	animated_sprite_2d.set_flip_h(safe_velocity.x < 0)	
 	character.move_and_slide()
 
 func _on_next_transitions() -> void:
