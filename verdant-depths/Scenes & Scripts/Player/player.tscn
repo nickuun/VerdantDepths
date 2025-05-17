@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://dfu5a0yu3etxr"]
+[gd_scene load_steps=113 format=3 uid="uid://dfu5a0yu3etxr"]
 
 [ext_resource type="Script" uid="uid://k2ldixw4xwi" path="res://Scenes & Scripts/Player/player.gd" id="1_b842k"]
 [ext_resource type="Texture2D" uid="uid://nhm4mg6ajp3v" path="res://Sprites/Player/Base Character/idle.png" id="2_b842k"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://enq1r3o37ql1" path="res://Scenes & Scripts/Player/action_move.gd" id="16_nh6bo"]
 [ext_resource type="Script" uid="uid://bidatrvu6lshx" path="res://Scenes & Scripts/Player/action_idle.gd" id="17_i1q3e"]
 [ext_resource type="Script" uid="uid://cj0mw6irm28dj" path="res://Scenes & Scripts/Player/dodge_roll.gd" id="18_kydfn"]
+[ext_resource type="Script" uid="uid://d2y4oarvew82j" path="res://Scenes & Scripts/Player/melee_attack.gd" id="19_r0hj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4bl5"]
 atlas = ExtResource("2_begg3")
@@ -811,6 +812,13 @@ hitComponentOffset = NodePath("../../AttackOffsetNode")
 script = ExtResource("18_kydfn")
 player = NodePath("../..")
 aniSprite = NodePath("../../AnimatedSprite2D")
+
+[node name="MeleeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animatedSprite", "hitComponentOffset", "weaponSprite")]
+script = ExtResource("19_r0hj1")
+player = NodePath("../..")
+animatedSprite = NodePath("../../AnimatedSprite2D")
+hitComponentOffset = NodePath("../../AttackOffsetNode")
+weaponSprite = NodePath("../../AnimatedSprite2D")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -6.29)

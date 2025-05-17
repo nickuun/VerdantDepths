@@ -42,7 +42,9 @@ func _on_next_transitions() -> void:
 		transition.emit("ActionIdle")
 	elif GameInputEvents.dodge_pressed() and CooldownTracker.is_ready():
 		transition.emit("DodgeRoll")
-		
+	elif GameInputEvents.melee_pressed():
+		transition.emit("MeleeAttack")
+
 
 func _on_enter() -> void:
 	pass

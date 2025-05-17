@@ -19,3 +19,6 @@ static func use_tool():
 
 static func dodge_pressed() -> bool:
 	return Input.is_action_just_pressed("dodge")
+
+static func melee_pressed() -> bool:
+	return Input.is_action_just_pressed("melee_attack")
