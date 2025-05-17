@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://dfu5a0yu3etxr"]
+[gd_scene load_steps=112 format=3 uid="uid://dfu5a0yu3etxr"]
 
 [ext_resource type="Script" uid="uid://k2ldixw4xwi" path="res://Scenes & Scripts/Player/player.gd" id="1_b842k"]
 [ext_resource type="Texture2D" uid="uid://nhm4mg6ajp3v" path="res://Sprites/Player/Base Character/idle.png" id="2_b842k"]
@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://chrd3phur4h3j" path="res://Scenes & Scripts/Player/tilling.gd" id="13_nvdmp"]
 [ext_resource type="Script" uid="uid://bta4uny25pofh" path="res://Scenes & Scripts/Player/watering.gd" id="14_nvdmp"]
 [ext_resource type="PackedScene" uid="uid://md68ca6jhu82" path="res://Scenes & Scripts/Helpers/Components/hit_component.tscn" id="15_6rsb4"]
+[ext_resource type="Script" uid="uid://enq1r3o37ql1" path="res://Scenes & Scripts/Player/action_move.gd" id="16_nh6bo"]
+[ext_resource type="Script" uid="uid://bidatrvu6lshx" path="res://Scenes & Scripts/Player/action_idle.gd" id="17_i1q3e"]
+[ext_resource type="Script" uid="uid://cj0mw6irm28dj" path="res://Scenes & Scripts/Player/dodge_roll.gd" id="18_kydfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4bl5"]
 atlas = ExtResource("2_begg3")
@@ -761,7 +764,7 @@ debug_color = Color(0.870892, 0.167548, 0.751915, 0.42)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("6_n05tl")
-initial_node_state = NodePath("Idle")
+initial_node_state = NodePath("ActionIdle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "aniSprite", "hit_component_collision_shape")]
 script = ExtResource("7_hrg5v")
@@ -790,6 +793,24 @@ animatedSprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("14_nvdmp")
 player = NodePath("../..")
 animatedSprite = NodePath("../../AnimatedSprite2D")
+
+[node name="ActionMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animatedSprite", "hitComponentOffset")]
+script = ExtResource("16_nh6bo")
+player = NodePath("../..")
+animatedSprite = NodePath("../../AnimatedSprite2D")
+hitComponentOffset = NodePath("../../AttackOffsetNode")
+
+[node name="ActionIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "aniSprite", "hit_component_collision_shape", "hitComponentOffset")]
+script = ExtResource("17_i1q3e")
+player = NodePath("../..")
+aniSprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../AttackOffsetNode/HitComponent/HitComponentCollisionShape2D")
+hitComponentOffset = NodePath("../../AttackOffsetNode")
+
+[node name="DodgeRoll" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "aniSprite")]
+script = ExtResource("18_kydfn")
+player = NodePath("../..")
+aniSprite = NodePath("../../AnimatedSprite2D")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -6.29)

@@ -28,10 +28,24 @@ func _on_enter() -> void:
 	_move_to_next_poi()
 
 func _move_to_next_poi() -> void:
+	#var target_name = poi_names[poi_index]
+	#var target_pos = poi_manager.get_poi_position(target_name)
+	#navigation_agent_2d.target_position = target_pos
+	#speed = randf_range(min_speed, max_speed)
+	
+	# pick a random poi_index that isn’t the one we just had
+	var new_index = randi() % poi_names.size()
+	if poi_names.size() > 1:
+		while new_index == poi_index:
+			new_index = randi() % poi_names.size()
+	poi_index = new_index
+
+	# now move there
 	var target_name = poi_names[poi_index]
-	var target_pos = poi_manager.get_poi_position(target_name)
+	var target_pos  = poi_manager.get_poi_position(target_name)
 	navigation_agent_2d.target_position = target_pos
 	speed = randf_range(min_speed, max_speed)
+
 
 func _on_physics_process(_delta: float) -> void:
 	if navigation_agent_2d.is_navigation_finished():

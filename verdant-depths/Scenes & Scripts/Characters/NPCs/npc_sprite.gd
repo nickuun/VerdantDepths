@@ -33,8 +33,11 @@ func _play_animation(anim: String) -> void:
 		#return
 	if body_sprite.sprite_frames.has_animation(anim):
 		body_sprite.play(anim)
-	if hair_sprite.sprite_frames.has_animation("style1_" + anim):
-		hair_sprite.play("style1_" + anim)
+	
+	var hairstyle = self.get_parent().hairstyle
+	if hair_sprite.sprite_frames.has_animation(hairstyle + anim):
+		hair_sprite.play(hairstyle + anim)
+		
 	if tool_sprite.sprite_frames.has_animation(anim):
 		tool_sprite.play(anim)
 	

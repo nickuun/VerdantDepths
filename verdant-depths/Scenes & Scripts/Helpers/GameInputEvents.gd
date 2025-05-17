@@ -16,3 +16,6 @@ static func is_momement_input() -> bool:
 static func use_tool():
 	var use_tool_value: bool = Input.is_action_pressed("click") or Input.is_action_just_pressed("click")
 	return use_tool_value
+
+static func dodge_pressed() -> bool:
+	return Input.is_action_just_pressed("dodge")

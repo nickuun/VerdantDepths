@@ -394,7 +394,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"style4_walk",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -423,7 +423,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"style5_walk",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -452,7 +452,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"style6_walk",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0nhi"]
@@ -530,7 +530,7 @@ animation = &"walk"
 [node name="Hair" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0p51e")
 sprite_frames = SubResource("SpriteFrames_24nq2")
-animation = &"style1_walk"
+animation = &"style6_walk"
 
 [node name="Tool" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_isveo")
