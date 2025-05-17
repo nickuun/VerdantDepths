@@ -2,8 +2,8 @@ extends NodeState
 
 @export var player: Player
 @export var aniSprite: AnimatedSprite2D
-@export var dodge_speed: float = 250.0
-@export var dodge_duration: float = 0.375
+@export var dodge_speed: float = 220.0
+@export var dodge_duration: float = 0.6
 @export var cooldown: float = 1.6
 
 var dodge_direction := Vector2.ZERO
@@ -27,7 +27,7 @@ func _on_enter() -> void:
 		dodge_direction = Vector2.DOWN
 
 	# Optionally: play dodge animation
-	#aniSprite.play("dodge")  # Assuming you create one
+	aniSprite.play("dodgeroll")  # Assuming you create one
 
 func _on_process(_delta: float) -> void:
 	# You can add visual effects, trail, i-frames, etc. here
