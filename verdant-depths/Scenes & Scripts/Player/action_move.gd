@@ -43,7 +43,13 @@ func _on_next_transitions() -> void:
 	elif GameInputEvents.dodge_pressed() and CooldownTracker.is_ready():
 		transition.emit("DodgeRoll")
 	elif GameInputEvents.melee_pressed():
-		transition.emit("MeleeAttack")
+		if ComboManager.is_combo_available():
+			transition.emit("MeleeAttack")
+		else:
+			print("combo not available, resetting from action_move")
+			ComboManager.reset_combo()
+			transition.emit("MeleeAttack")
+
 
 
 func _on_enter() -> void:
