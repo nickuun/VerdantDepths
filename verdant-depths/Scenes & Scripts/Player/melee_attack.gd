@@ -2,10 +2,14 @@ extends NodeState
 
 @export var player: Player
 @export var animatedSprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
+
 @export var hitComponentOffset: Node2D
+@export var hit_component_colliasion_shape: Node2D
+
 @export var weaponSprite: AnimatedSprite2D
 
-@export var attack_durations := [0.2, 0.2, 0.35]
+@export var attack_durations := [0.35, 0.15, 0.2]
 @export var combo_input_window := 1.3
 @export var combo_cooldown := 0.6
 @export var movement_influence := 0.1
@@ -27,6 +31,8 @@ func _ready():
 	easing_curve.add_point(Vector2(1, 1))
 
 func _on_enter() -> void:
+	#hit_component_collision_shape.disablead = false
+
 	if ComboManager.is_combo_available():
 		start_attack(false)
 	else:
@@ -66,22 +72,23 @@ func start_attack(force_fresh := false):
 	match current_attack:
 		0:
 			print("➡️ Playing attack 0")
-			weaponSprite.play("swing")
-			animatedSprite.frame = 0
 			animatedSprite.play("action")
+			animatedSprite.frame = 0
+			animation_player.play("Slash")
+
 		1:
 			print("➡️ Playing attack 1")
-			weaponSprite.play_backwards("swing")
+			animation_player.play("Backslash")
 			animatedSprite.frame = 0
 			animatedSprite.play("action")
 		2:
 			print("➡️ Playing attack 2")
-			weaponSprite.play("swing")
+			animation_player.play("Slash")
 			animatedSprite.frame = 0
 			animatedSprite.play("action")
 
 func _on_physics_process(delta: float) -> void:
-	ComboManager.update(delta)
+	#ComboManager.update(delta)
 	
 	var move_input = GameInputEvents.movement_input()
 
@@ -100,9 +107,9 @@ func _on_physics_process(delta: float) -> void:
 			0:
 				lunge_vec = lunge_direction * lunge_speed * eased_t  # Forward
 			1:
-				lunge_vec = -lunge_direction *  (lunge_speed * 0.5)  * eased_t  # Backward
+				lunge_vec = lunge_direction *  (lunge_speed * 0.5)  * eased_t  # Backward
 			2:
-				lunge_vec = lunge_direction * (lunge_speed * 1.3) * eased_t  # Forward burst
+				lunge_vec = lunge_direction * (lunge_speed * 1.5) * eased_t  # Forward burst
 	
 		# Add player input (micro movement)
 		if move_input != Vector2.ZERO:
@@ -142,7 +149,9 @@ func _on_physics_process(delta: float) -> void:
 		player.move_and_slide()
 
 func _on_next_transitions() -> void:
-	if awaiting_input and GameInputEvents.melee_pressed():
-		start_attack(false)
-	elif !attack_started and !awaiting_input and GameInputEvents.is_momement_input():
+	if !attack_started and !awaiting_input and GameInputEvents.is_momement_input():
 		transition.emit("ActionMove")
+
+func end_attack_animation():
+	print("called")
+	transition.emit("ActionIdle")

@@ -14,3 +14,11 @@ var last_direction: Vector2  # Track last direction for idle animation
 
 func _ready() -> void:
 	randomize()
+	
+func _physics_process(delta: float) -> void:	
+	ComboManager.update(delta)
+	
+
+
+func _on_hit_component_area_entered(area: Area2D) -> void:
+	print(area.name)

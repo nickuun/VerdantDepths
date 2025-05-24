@@ -11,7 +11,7 @@ func _on_process(_delta : float) -> void:
 	var mouse_position = player.get_global_mouse_position()
 	var to_mouse = (mouse_position - player.global_position).normalized()
 	hitComponentOffset.look_at(mouse_position)
-	hitComponentOffset.rotation += deg_to_rad(-22.5)
+	hitComponentOffset.rotation += deg_to_rad(0)
 	var rounded_dir = get_cardinal_direction(to_mouse)
 
 	if rounded_dir == Vector2.UP:
@@ -36,6 +36,13 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_momement_input():
 		#transition.emit("Walk")d
 		transition.emit("ActionMove")
+	elif GameInputEvents.melee_pressed():
+		if ComboManager.is_combo_available():
+			transition.emit("MeleeAttack")
+		else:
+			print("combo not available, resetting from action_move")
+			ComboManager.reset_combo()
+			transition.emit("MeleeAttack")
 
 func _on_enter() -> void:
 	pass

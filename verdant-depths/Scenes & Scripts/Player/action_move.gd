@@ -18,7 +18,7 @@ func _on_physics_process(_delta : float) -> void:
 		var mouse_position = player.get_global_mouse_position()
 		var to_mouse = (mouse_position - player.global_position).normalized()
 		hitComponentOffset.look_at(mouse_position)
-		hitComponentOffset.rotation += deg_to_rad(-22.5)
+		hitComponentOffset.rotation += deg_to_rad(0)
 
 		if abs(to_mouse.x) >= abs(to_mouse.y):
 			if to_mouse.x < 0:
@@ -40,7 +40,7 @@ func _on_physics_process(_delta : float) -> void:
 func _on_next_transitions() -> void:
 	if !GameInputEvents.is_momement_input():
 		transition.emit("ActionIdle")
-	elif GameInputEvents.dodge_pressed() and CooldownTracker.is_ready():
+	elif GameInputEvents.dodge_pressed():
 		transition.emit("DodgeRoll")
 	elif GameInputEvents.melee_pressed():
 		if ComboManager.is_combo_available():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://cseljjuus40sx"]
 
-[ext_resource type="Texture2D" uid="uid://cjfs5ad3l7ti1" path="res://Sprites/Environment/Premades/t25c4qahjg701.jpg" id="1_hyw6b"]
+[ext_resource type="Texture2D" uid="uid://badsfh8inq0j0" path="res://Sprites/Environment/Premades/t25c4qahjg701.jpg" id="1_hyw6b"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="1_xlx4m"]
 [ext_resource type="PackedScene" uid="uid://dfu5a0yu3etxr" path="res://Scenes & Scripts/Player/player.tscn" id="2_dgpnq"]
 [ext_resource type="PackedScene" uid="uid://bpyqstuigbe78" path="res://Scenes & Scripts/Characters/Chicken/chicken.tscn" id="3_dgpnq"]
