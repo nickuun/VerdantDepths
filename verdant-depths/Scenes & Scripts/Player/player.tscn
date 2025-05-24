@@ -1177,7 +1177,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_yvnbr")
 }
 
-[node name="ActionPreview" parent="." instance=ExtResource("23_ois3v")]
+[node name="ActionPreview" parent="." groups=["player"] instance=ExtResource("23_ois3v")]
 visible = false
 
 [connection signal="area_entered" from="AttackOffsetNode/HitComponent" to="." method="_on_hit_component_area_entered"]

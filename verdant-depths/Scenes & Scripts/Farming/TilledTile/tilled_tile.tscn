@@ -68,6 +68,11 @@ animations = [{
 "loop": true,
 "name": &"1",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y0kq"]
@@ -114,13 +119,13 @@ script = ExtResource("1_huopp")
 z_index = -1
 position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_7y0kq")
-animation = &"2"
+animation = &"1"
 
 [node name="CompostSprite" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_7ite5")
-animation = &"1"
+animation = &"empty"
 
 [node name="PlantSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)

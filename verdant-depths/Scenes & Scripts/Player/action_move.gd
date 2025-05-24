@@ -42,7 +42,7 @@ func _on_next_transitions() -> void:
 		transition.emit("ActionIdle")
 	elif GameInputEvents.dodge_pressed():
 		transition.emit("DodgeRoll")
-	elif GameInputEvents.melee_pressed():
+	elif GameInputEvents.melee_pressed() and not is_mouse_over_ui() and player.current_tool == DataTypes.Tools.Attack:
 		if ComboManager.is_combo_available():
 			transition.emit("MeleeAttack")
 		else:
@@ -57,3 +57,6 @@ func _on_enter() -> void:
 
 func _on_exit() -> void:
 	animatedSprite.stop()
+
+func is_mouse_over_ui() -> bool:
+	return get_viewport().gui_get_hovered_control() != null

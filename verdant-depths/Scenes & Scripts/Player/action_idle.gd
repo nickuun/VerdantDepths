@@ -36,7 +36,7 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_momement_input():
 		#transition.emit("Walk")d
 		transition.emit("ActionMove")
-	elif GameInputEvents.melee_pressed():
+	elif GameInputEvents.melee_pressed() and not is_mouse_over_ui()  and player.current_tool == DataTypes.Tools.Attack:
 		if ComboManager.is_combo_available():
 			transition.emit("MeleeAttack")
 		else:
@@ -59,3 +59,6 @@ func get_cardinal_direction(dir: Vector2) -> Vector2:
 		return Vector2.LEFT if dir.x < 0 else Vector2.RIGHT
 	else:
 		return Vector2.UP if dir.y < 0 else Vector2.DOWN
+		
+func is_mouse_over_ui() -> bool:
+	return get_viewport().gui_get_hovered_control() != null

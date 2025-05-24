@@ -11,8 +11,8 @@ func _ready():
 	sprite.play(idle_animations.pick_random())
 
 func _on_DummyArea_area_entered(area: Area2D) -> void:
-	if is_hit:
-		return
+	#if is_hit:
+		#return
 	print("Ouch! 😵 Got hit by:", area.name)
 	react_to_hit(area)
 

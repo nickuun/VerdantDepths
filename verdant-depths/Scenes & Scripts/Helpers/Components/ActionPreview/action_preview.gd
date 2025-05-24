@@ -46,7 +46,7 @@ func set_preview_mode(enabled: bool):
 	
 	var target_modulate
 	if enabled:
-		target_modulate = Color(1, 1, 1, 0.1)
+		target_modulate = Color(1, 1, 1, 0.35)
 	else:
 		target_modulate = Color(1, 1, 1, 1)
 		
