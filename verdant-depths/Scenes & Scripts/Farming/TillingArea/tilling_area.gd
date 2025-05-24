@@ -3,38 +3,51 @@ extends Node2D
 @export var grid_size := 16
 @export var max_till_distance := 30.0
 @export var tile_scene: PackedScene
-@export var action_preview: NodePath  # Drag your ActionPreview instance
-@export var offset := Vector2(0,-8)
+@export var action_preview: NodePath
+@export var offset := Vector2(0, -8)
 
 @onready var preview := get_node(action_preview)
-@onready var player := get_tree().get_first_node_in_group("player")  # or use export var
+@onready var player := get_tree().get_first_node_in_group("player")
 
 var tilled_positions := {}
 
 func _process(_delta):
-	if get_tree().get_first_node_in_group("player").current_tool == DataTypes.Tools.Dig:
-		self.show()
-		var mouse_pos = get_global_mouse_position()
-		var snapped_pos = mouse_pos.snapped(Vector2(grid_size, grid_size))
-		
-		# Optional: clamp to region bounds
-		# snapped_pos = clamp_to_bounds(snapped_pos)
+	var current_tool = player.current_tool
+	var mouse_pos = get_global_mouse_position()
+	var snapped_pos = mouse_pos.snapped(Vector2(grid_size, grid_size))
+	var in_range = player.global_position.distance_to(snapped_pos) <= max_till_distance
 
-		# Distance check
-		var is_in_range = player.global_position.distance_to(snapped_pos) <= max_till_distance
-		
-		# Tilled already?
-		var already_tilled = tilled_positions.has(snapped_pos)
+	match current_tool:
+		DataTypes.Tools.Dig, DataTypes.Tools.Plant, DataTypes.Tools.Water:
+			self.show()
+			preview.show_preview_at(snapped_pos)
 
-		# Update preview
-		preview.show_preview_at(snapped_pos)
-		preview.set_preview_mode(!is_in_range or already_tilled)
+			var already_tilled = tilled_positions.has(snapped_pos)
+			
+			# For Dig: only allow tilling empty and in-range
+			if current_tool == DataTypes.Tools.Dig:
+				preview.set_preview_mode(!in_range or already_tilled)
+				if Input.is_action_just_pressed("click") and in_range and not already_tilled:
+					place_tile(snapped_pos)
 
-		# Plant on action press
-		if Input.is_action_just_pressed("click") and is_in_range and not already_tilled:
-			place_tile(snapped_pos)
-	else:
-		self.hide()
+			# For Plant: only allow planting on existing tilled tile
+			elif current_tool == DataTypes.Tools.Plant:
+				preview.set_preview_mode(!in_range or not already_tilled)
+				if Input.is_action_just_pressed("click") and in_range and already_tilled:
+					var tile = tilled_positions[snapped_pos]
+					if tile.has_method("plant_seed"):
+						tile.plant_seed()
+			
+			elif current_tool == DataTypes.Tools.Water:
+				preview.set_preview_mode(!in_range or not already_tilled)
+				if Input.is_action_just_pressed("click") and in_range and already_tilled:
+					var tile = tilled_positions[snapped_pos]
+					if tile.has_method("advance_growth"):
+						tile.advance_growth()
+
+		_:
+			self.hide()
+			preview.hide()
 
 func place_tile(pos: Vector2):
 	print("Placing tile")

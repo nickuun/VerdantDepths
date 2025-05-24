@@ -43,7 +43,4 @@ func clear_tile():
 	plant_sprite.play("Empty")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if not has_seed:
-		plant_seed()
-	else:
-		advance_growth()
+	print("TIME FOR HARVEST? GROWTH STAGE ->", growth_stage)
