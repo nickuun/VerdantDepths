@@ -19,17 +19,20 @@ config/icon="res://icon.svg"
 
 CooldownTracker="*res://Scenes & Scripts/Globals/CooldownTracker.gd"
 ComboManager="*res://Scenes & Scripts/Globals/ComboManager.gd"
+FloatingTextManager="*res://Scenes & Scripts/Globals/FloatingTextManager.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
 [file_customization]
 
 folder_colors={
+"res://Assets/": "pink",
 "res://Scenes & Scripts/": "orange",
 "res://Scenes & Scripts/Globals/": "red",
 "res://Scenes & Scripts/Helpers/": "red",

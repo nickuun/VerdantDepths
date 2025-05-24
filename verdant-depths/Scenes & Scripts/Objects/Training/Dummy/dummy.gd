@@ -17,6 +17,12 @@ func _on_DummyArea_area_entered(area: Area2D) -> void:
 	react_to_hit(area)
 
 func react_to_hit(area: Area2D):
+	
+	FloatingTextManager.show(
+	str(randi_range(10, 30)),                # Text (e.g. damage number)
+	global_position + Vector2(0, -20),       # Appears just above dummy                                # Optional: duration
+)
+
 	is_hit = true
 	
 	# Flip direction based on hit origin

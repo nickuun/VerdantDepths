@@ -232,4 +232,7 @@ position = Vector2(2186, 407)
 [node name="Dummy" parent="." instance=ExtResource("12_eioqq")]
 position = Vector2(5, 0)
 
+[node name="Dummy2" parent="." instance=ExtResource("12_eioqq")]
+position = Vector2(34, 77)
+
 [editable path="Managers/PoiManager"]
