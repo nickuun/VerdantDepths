@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://du45diupxutcc"]
+[gd_scene load_steps=22 format=4 uid="uid://du45diupxutcc"]
 
 [ext_resource type="Texture2D" uid="uid://badsfh8inq0j0" path="res://Sprites/Environment/Premades/t25c4qahjg701.jpg" id="1_bqkwu"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_xc3av"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8x5pd4euehh4" path="res://Sprites/Buildings/ores/commerce_ore_crystals_stall.png" id="12_pqqjq"]
 [ext_resource type="PackedScene" uid="uid://c327cy6sgy8e4" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.tscn" id="13_bqkwu"]
 [ext_resource type="PackedScene" uid="uid://djb26s8h7ef8o" path="res://Scenes & Scripts/Helpers/Managers/PotManager/Poi/Poi.tscn" id="13_gb4gi"]
+[ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_xc3av"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci4ln"]
 atlas = ExtResource("10_sjc5x")
@@ -239,5 +240,8 @@ position = Vector2(34, 77)
 
 [node name="TilledTile" parent="." instance=ExtResource("13_bqkwu")]
 position = Vector2(-31, 75)
+
+[node name="TillingArea" parent="." instance=ExtResource("14_xc3av")]
+position = Vector2(9, 174)
 
 [editable path="Managers/PoiManager"]

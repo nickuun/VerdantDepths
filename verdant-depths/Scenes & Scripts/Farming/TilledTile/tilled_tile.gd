@@ -11,6 +11,9 @@ extends Node2D
 var has_seed := false
 var growth_stage := 0  # 0 = none, 1 = seed, 2 = sprout, 3 = plant
 
+func _ready() -> void:
+	print("TILE PLACED ")
+
 func plant_seed():
 	if has_seed:
 		return
@@ -38,7 +41,6 @@ func clear_tile():
 	has_seed = false
 	growth_stage = 0
 	plant_sprite.play("Empty")
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if not has_seed:

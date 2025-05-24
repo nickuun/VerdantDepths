@@ -17,8 +17,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:	
 	ComboManager.update(delta)
-	
-
+	#$ActionPreview.show_preview_at(self.position)
+	#$ActionPreview.set_preview_mode(false)
 
 func _on_hit_component_area_entered(area: Area2D) -> void:
 	print(area.name)

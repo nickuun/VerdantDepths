@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://dfu5a0yu3etxr"]
+[gd_scene load_steps=142 format=3 uid="uid://dfu5a0yu3etxr"]
 
 [ext_resource type="Script" uid="uid://k2ldixw4xwi" path="res://Scenes & Scripts/Player/player.gd" id="1_b842k"]
 [ext_resource type="Texture2D" uid="uid://b7xo43g241byb" path="res://Sprites/Player/Base Character/action.png" id="2_7gjhi"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://bidatrvu6lshx" path="res://Scenes & Scripts/Player/action_idle.gd" id="17_i1q3e"]
 [ext_resource type="Script" uid="uid://cj0mw6irm28dj" path="res://Scenes & Scripts/Player/dodge_roll.gd" id="18_kydfn"]
 [ext_resource type="Script" uid="uid://d2y4oarvew82j" path="res://Scenes & Scripts/Player/melee_attack.gd" id="19_r0hj1"]
+[ext_resource type="PackedScene" uid="uid://xeqhj84n5f1s" path="res://Scenes & Scripts/Helpers/Components/ActionPreview/action_preview.tscn" id="23_ois3v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5d2qs"]
 atlas = ExtResource("2_7gjhi")
@@ -1078,7 +1079,7 @@ _data = {
 &"Slash": SubResource("Animation_7gjhi")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 texture_filter = 1
 collision_layer = 2
@@ -1175,5 +1176,8 @@ radius = 3.0
 libraries = {
 &"": SubResource("AnimationLibrary_yvnbr")
 }
+
+[node name="ActionPreview" parent="." instance=ExtResource("23_ois3v")]
+visible = false
 
 [connection signal="area_entered" from="AttackOffsetNode/HitComponent" to="." method="_on_hit_component_area_entered"]
