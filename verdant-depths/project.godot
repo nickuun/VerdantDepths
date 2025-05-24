@@ -22,11 +22,13 @@ ComboManager="*res://Scenes & Scripts/Globals/ComboManager.gd"
 FloatingTextManager="*res://Scenes & Scripts/Globals/FloatingTextManager.gd"
 ScreenShakeManager="*res://Scenes & Scripts/Globals/ScreenShakeManager.gd"
 TimeManager="*res://Scenes & Scripts/Globals/TimeManager.gd"
+PlantManager="*res://Scenes & Scripts/Globals/PlantManager.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 

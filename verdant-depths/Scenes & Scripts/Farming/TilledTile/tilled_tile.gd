@@ -22,6 +22,12 @@ func plant_seed():
 	plant_sprite.animation = "Carrot"
 	plant_sprite.frame = 0
 
+	# Randomize growth interval: base 10s ± 20%
+	var base_duration = 10.0
+	var randomized = base_duration * (1.0 + randf_range(-0.2, 0.2))
+	var ms = int(randomized * 1000.0)
+
+	PlantManager.register_plant(self, ms)
 
 func advance_growth():
 	if not has_seed:
