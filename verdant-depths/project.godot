@@ -21,6 +21,7 @@ CooldownTracker="*res://Scenes & Scripts/Globals/CooldownTracker.gd"
 ComboManager="*res://Scenes & Scripts/Globals/ComboManager.gd"
 FloatingTextManager="*res://Scenes & Scripts/Globals/FloatingTextManager.gd"
 ScreenShakeManager="*res://Scenes & Scripts/Globals/ScreenShakeManager.gd"
+TimeManager="*res://Scenes & Scripts/Globals/TimeManager.gd"
 
 [display]
 

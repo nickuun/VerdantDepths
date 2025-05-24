@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=9 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
 [ext_resource type="Script" uid="uid://tu6fwipjfx5t" path="res://Scenes & Scripts/UI/ActionTools/toolbar.gd" id="2_wk7hc"]
 [ext_resource type="PackedScene" uid="uid://dfu5a0yu3etxr" path="res://Scenes & Scripts/Player/player.tscn" id="3_ugtvx"]
+[ext_resource type="PackedScene" uid="uid://bcj3pnjissqpo" path="res://Scenes & Scripts/UI/Time/Time.tscn" id="4_oyabj"]
 [ext_resource type="PackedScene" uid="uid://demmaa3rnqn1p" path="res://Scenes & Scripts/UI/ActionTools/ActionToolButton.tscn" id="5_8043m"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
 [ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_1l1w0"]
@@ -42,6 +43,12 @@ tool_type = "Plant"
 [node name="ActionToolButton4" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
 tool_type = "Water"
+
+[node name="Time" parent="UI" instance=ExtResource("4_oyabj")]
+offset_left = 239.5
+offset_top = -4.5
+offset_right = 279.5
+offset_bottom = 35.5
 
 [node name="GameTilemap" type="Node2D" parent="."]
 z_index = -1
