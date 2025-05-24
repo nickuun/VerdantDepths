@@ -1105,6 +1105,7 @@ shape = SubResource("CircleShape2D_lx0ho")
 debug_color = Color(0.870892, 0.167548, 0.751915, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AttackOffsetNode/HitComponent/HitComponentCollisionShape2D"]
+z_index = 1
 position = Vector2(-3, -4)
 sprite_frames = SubResource("SpriteFrames_jvep4")
 animation = &"empty"

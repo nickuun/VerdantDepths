@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://du45diupxutcc"]
+[gd_scene load_steps=21 format=4 uid="uid://du45diupxutcc"]
 
 [ext_resource type="Texture2D" uid="uid://badsfh8inq0j0" path="res://Sprites/Environment/Premades/t25c4qahjg701.jpg" id="1_bqkwu"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_xc3av"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://djl3oeq5bpu2o" path="res://Sprites/Buildings/marketplace/commerce_marketplace_stall.png" id="11_bm0l0"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_eioqq"]
 [ext_resource type="Texture2D" uid="uid://c8x5pd4euehh4" path="res://Sprites/Buildings/ores/commerce_ore_crystals_stall.png" id="12_pqqjq"]
+[ext_resource type="PackedScene" uid="uid://c327cy6sgy8e4" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.tscn" id="13_bqkwu"]
 [ext_resource type="PackedScene" uid="uid://djb26s8h7ef8o" path="res://Scenes & Scripts/Helpers/Managers/PotManager/Poi/Poi.tscn" id="13_gb4gi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci4ln"]
@@ -82,6 +83,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_bqkwu")
 
 [node name="GameTilemap" type="Node2D" parent="."]
+z_index = -1
 y_sort_enabled = true
 position = Vector2(-2104, -95)
 
@@ -234,5 +236,8 @@ position = Vector2(5, 0)
 
 [node name="Dummy2" parent="." instance=ExtResource("12_eioqq")]
 position = Vector2(34, 77)
+
+[node name="TilledTile" parent="." instance=ExtResource("13_bqkwu")]
+position = Vector2(-31, 75)
 
 [editable path="Managers/PoiManager"]
