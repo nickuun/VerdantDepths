@@ -22,7 +22,7 @@ func react_to_hit(area: Area2D):
 	str(randi_range(10, 30)),                # Text (e.g. damage number)
 	global_position + Vector2(0, -20),       # Appears just above dummy                                # Optional: duration
 )
-
+	ScreenShakeManager.shake(0.8, 0.2)
 	is_hit = true
 	
 	# Flip direction based on hit origin
