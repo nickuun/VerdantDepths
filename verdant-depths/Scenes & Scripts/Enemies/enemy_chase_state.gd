@@ -24,6 +24,9 @@ func _on_physics_process(delta):
 func _on_next_transitions():
 	if not player:
 		return
+	
+	if parent.global_position.distance_to(player.global_position) < 20.0:  # attack range
+		emit_signal("transition", "EnemyAttackState")
 
 	if parent.global_position.distance_to(player.global_position) > lose_radius:
 		emit_signal("transition", "EnemyIdleState")
