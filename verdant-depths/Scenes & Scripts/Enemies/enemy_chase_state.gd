@@ -2,6 +2,9 @@ extends NodeState
 
 @export var chase_speed := 30.0
 @export var lose_radius := 60.0
+@export var attack_range := 20.0
+@export var attack_state_name := "EnemyAttackState"
+
 @export var animated_sprite: AnimatedSprite2D
 
 var parent: CharacterBody2D
@@ -25,8 +28,8 @@ func _on_next_transitions():
 	if not player:
 		return
 	
-	if parent.global_position.distance_to(player.global_position) < 20.0:  # attack range
-		emit_signal("transition", "EnemyAttackState")
+	if player and parent.global_position.distance_to(player.global_position) < attack_range:
+		emit_signal("transition", attack_state_name)
 
 	if parent.global_position.distance_to(player.global_position) > lose_radius:
 		emit_signal("transition", "EnemyIdleState")

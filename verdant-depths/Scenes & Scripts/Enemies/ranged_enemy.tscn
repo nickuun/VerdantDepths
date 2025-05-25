@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://kha1gf50884l"]
+
+[ext_resource type="PackedScene" uid="uid://bpxqehmip0m27" path="res://Scenes & Scripts/Enemies/enemy_base.tscn" id="1_xsha7"]
+[ext_resource type="Script" uid="uid://b3xkfgyuduyyc" path="res://Scenes & Scripts/Enemies/ranged_attack_state.gd" id="2_mx4om"]
+
+[node name="RangedEnemy" instance=ExtResource("1_xsha7")]
+modulate = Color(0.329412, 1, 0.305882, 1)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"RunDown"
+
+[node name="EnemyIdleState" parent="StateMachine" index="0"]
+detection_radius = 100.0
+
+[node name="EnemyChaseState" parent="StateMachine" index="1"]
+lose_radius = 100.0
+attack_range = 60.0
+attack_state_name = "RangedAttackState"
+
+[node name="RangedAttackState" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("2_mx4om")
+animated_sprite = NodePath("../../AnimatedSprite2D")
