@@ -8,6 +8,10 @@ extends Node2D
 @export var sprout_sprite: Texture2D
 @export var plant_sprite_full: Texture2D
 
+@export var min_yield := 1
+@export var max_yield := 3
+@export var drop_scene: PackedScene 
+
 var has_seed := false
 var growth_stage := 0  # 0 = none, 1 = seed, 2 = sprout, 3 = plant
 
@@ -46,7 +50,39 @@ func advance_growth():
 func clear_tile():
 	has_seed = false
 	growth_stage = 0
-	plant_sprite.play("Empty")
+	plant_sprite.animation = "Empty"
+	
+	#plant_sprite.frame = -1  # Hides it (or use a blank frame)
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("TIME FOR HARVEST? GROWTH STAGE ->", growth_stage)
+	if growth_stage == 3:
+		print("Harvesting plant!")
+		call_deferred("harvest")
+
+
+func harvest():
+	# Reset tile
+	clear_tile()
+
+	# Random number of seed drops
+	var drops = randi_range(min_yield, max_yield)
+
+	for i in range(drops):
+		spawn_drop()
+
+		
+func spawn_drop():
+	if drop_scene:
+		var drop = drop_scene.instantiate()
+		get_tree().current_scene.add_child(drop)
+		
+		drop.global_position = global_position
+
+		# Random launch direction
+		var angle = randf_range(-PI / 4, PI / 4)
+		var distance = randf_range(32, 64)
+		var target = global_position + Vector2.RIGHT.rotated(angle) * distance
+
+		drop.launch_to(target)

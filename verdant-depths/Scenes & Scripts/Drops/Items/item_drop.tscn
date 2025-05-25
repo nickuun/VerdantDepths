@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhjmg5hohwmen"]
+
+[ext_resource type="Script" uid="uid://cccmcgj5c31sn" path="res://Scenes & Scripts/Drops/Items/item_drop.gd" id="1_j00jo"]
+[ext_resource type="Texture2D" uid="uid://pyj33elrv3oh" path="res://Sprites/Farming/crops/carrot.png" id="1_pxehs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j00jo"]
+
+[node name="ItemDrop" type="Area2D"]
+script = ExtResource("1_j00jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxehs")
+region_enabled = true
+region_rect = Rect2(2, 16, 13, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j00jo")
