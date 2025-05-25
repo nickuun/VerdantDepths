@@ -110,6 +110,7 @@ plant_tile={
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="Animals"
 2d_physics/layer_8="NPC"
+2d_physics/layer_9="Enemies"
 
 [rendering]
 

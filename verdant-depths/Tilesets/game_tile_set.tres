@@ -1,14 +1,14 @@
 [gd_resource type="TileSet" load_steps=32 format=3 uid="uid://du8q0iq7m80jl"]
 
 [ext_resource type="PackedScene" uid="uid://gauhmty5l1od" path="res://Scenes & Scripts/Houses/large_house.tscn" id="1_0b0mn"]
-[ext_resource type="Texture2D" uid="uid://ddt4kr50e7ch" path="res://Sprites/Environment/Tiles/Water.png" id="1_m70i2"]
-[ext_resource type="Texture2D" uid="uid://cuowgu0sdl3a8" path="res://Sprites/Environment/Tiles/Grass.png" id="2_cbdxd"]
-[ext_resource type="Texture2D" uid="uid://brykr0pdl4ru" path="res://Sprites/Environment/Tiles/Tilled_Dirt_Wide.png" id="3_hu6sp"]
-[ext_resource type="Texture2D" uid="uid://dwjocfxoshmaw" path="res://Sprites/Environment/Objects/Basic_Grass_Biom_things.png" id="4_xwv23"]
+[ext_resource type="Texture2D" uid="uid://d0y5jgdtpt7s3" path="res://Sprites/Environment/Tiles/Water.png" id="1_m70i2"]
+[ext_resource type="Texture2D" uid="uid://dgkohg4ameofj" path="res://Sprites/Environment/Tiles/Grass.png" id="2_cbdxd"]
+[ext_resource type="Texture2D" uid="uid://cf8v5whojtlxt" path="res://Sprites/Environment/Tiles/Tilled_Dirt_Wide.png" id="3_hu6sp"]
+[ext_resource type="Texture2D" uid="uid://b4xs6pbx7gvtp" path="res://Sprites/Environment/Objects/Basic_Grass_Biom_things.png" id="4_xwv23"]
 [ext_resource type="PackedScene" uid="uid://bfp63gg2w0tny" path="res://Scenes & Scripts/Objects/Trees/small_tree.tscn" id="6_pi5w0"]
-[ext_resource type="Texture2D" uid="uid://c21lyrp2hogr1" path="res://Sprites/Environment/Tiles/Fences.png" id="7_mt8is"]
-[ext_resource type="Texture2D" uid="uid://dauihtmcw3ym8" path="res://Sprites/Environment/Tiles/Path_Tile.png" id="7_ow828"]
-[ext_resource type="Texture2D" uid="uid://dkmhdi3kov88q" path="res://Sprites/Environment/Tiles/Grass_Middle.png" id="8_4agr7"]
+[ext_resource type="Texture2D" uid="uid://bh661nlo2l10l" path="res://Sprites/Environment/Tiles/Fences.png" id="7_mt8is"]
+[ext_resource type="Texture2D" uid="uid://b7jgyog2hw5lu" path="res://Sprites/Environment/Tiles/Path_Tile.png" id="7_ow828"]
+[ext_resource type="Texture2D" uid="uid://bocyoep656r6a" path="res://Sprites/Environment/Tiles/Grass_Middle.png" id="8_4agr7"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pi5w0"]
 scenes/1/scene = ExtResource("1_0b0mn")
