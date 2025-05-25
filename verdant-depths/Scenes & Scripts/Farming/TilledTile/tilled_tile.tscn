@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=3 uid="uid://c327cy6sgy8e4"]
 
 [ext_resource type="Script" uid="uid://jjfjno47qpi7" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.gd" id="1_huopp"]
-[ext_resource type="Texture2D" uid="uid://bjxfgtnwak81k" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
-[ext_resource type="Texture2D" uid="uid://pyj33elrv3oh" path="res://Sprites/Farming/crops/carrot.png" id="2_3jrtw"]
+[ext_resource type="Texture2D" uid="uid://c218ldbvve1qv" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
+[ext_resource type="Texture2D" uid="uid://cjdfgho3c3tia" path="res://Sprites/Farming/crops/carrot.png" id="2_3jrtw"]
 [ext_resource type="PackedScene" uid="uid://bhjmg5hohwmen" path="res://Scenes & Scripts/Drops/Items/item_drop.tscn" id="2_apydh"]
-[ext_resource type="Texture2D" uid="uid://b58oso703xri8" path="res://Sprites/Farming/crops/crops - all.png" id="5_7y0kq"]
+[ext_resource type="Texture2D" uid="uid://vgv1cihf6qg" path="res://Sprites/Farming/crops/crops - all.png" id="5_7y0kq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jrtw"]
 atlas = ExtResource("1_llvpn")
