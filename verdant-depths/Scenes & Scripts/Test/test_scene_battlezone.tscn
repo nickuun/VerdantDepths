@@ -44,6 +44,10 @@ tool_type = "Plant"
 layout_mode = 2
 tool_type = "Water"
 
+[node name="ActionToolButton5" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
+layout_mode = 2
+tool_type = "Shoot"
+
 [node name="Time" parent="UI" instance=ExtResource("4_oyabj")]
 offset_left = 239.5
 offset_top = -4.5

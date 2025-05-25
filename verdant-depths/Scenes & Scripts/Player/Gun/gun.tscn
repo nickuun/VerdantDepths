@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://blhn603fi2ph2"]
+
+[ext_resource type="Script" uid="uid://dva1dsme3waeh" path="res://Scenes & Scripts/Player/Gun/gun.gd" id="1_sbef1"]
+[ext_resource type="Texture2D" uid="uid://ckbwve6uu617y" path="res://Sprites/UI/Icons/indicator.png" id="2_uqcgm"]
+
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("line_left", "line_right")]
+script = ExtResource("1_sbef1")
+line_left = NodePath("LineLeft")
+line_right = NodePath("LineRight")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="LineRight" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_uqcgm")
+centered = false
+region_rect = Rect2(0, 0, 8, 6)
+
+[node name="LineLeft" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_uqcgm")
+centered = false

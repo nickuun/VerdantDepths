@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://dfu5a0yu3etxr"]
+[gd_scene load_steps=143 format=3 uid="uid://dfu5a0yu3etxr"]
 
 [ext_resource type="Script" uid="uid://k2ldixw4xwi" path="res://Scenes & Scripts/Player/player.gd" id="1_b842k"]
 [ext_resource type="Texture2D" uid="uid://b7xo43g241byb" path="res://Sprites/Player/Base Character/action.png" id="2_7gjhi"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cj0mw6irm28dj" path="res://Scenes & Scripts/Player/dodge_roll.gd" id="18_kydfn"]
 [ext_resource type="Script" uid="uid://d2y4oarvew82j" path="res://Scenes & Scripts/Player/melee_attack.gd" id="19_r0hj1"]
 [ext_resource type="PackedScene" uid="uid://xeqhj84n5f1s" path="res://Scenes & Scripts/Helpers/Components/ActionPreview/action_preview.tscn" id="23_ois3v"]
+[ext_resource type="PackedScene" uid="uid://blhn603fi2ph2" path="res://Scenes & Scripts/Player/Gun/gun.tscn" id="24_yvnbr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5d2qs"]
 atlas = ExtResource("2_7gjhi")
@@ -925,6 +926,60 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="Animation" id="Animation_yvnbr"]
+resource_name = "Backslash"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StateMachine/MeleeAttack")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_attack_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"swing"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="Animation" id="Animation_ois3v"]
 length = 0.001
 tracks/0/type = "value"
@@ -1018,60 +1073,6 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_yvnbr"]
-resource_name = "Backslash"
-length = 0.2
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StateMachine/MeleeAttack")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"end_attack_animation"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 4, 3, 2, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D/AnimatedSprite2D:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"swing"]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackOffsetNode/HitComponent/HitComponentCollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yvnbr"]
 _data = {
 &"Backslash": SubResource("Animation_yvnbr"),
@@ -1143,11 +1144,12 @@ script = ExtResource("14_nvdmp")
 player = NodePath("../..")
 animatedSprite = NodePath("../../PlayerSprite")
 
-[node name="ActionMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animatedSprite", "hitComponentOffset")]
+[node name="ActionMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animatedSprite", "hitComponentOffset", "gun")]
 script = ExtResource("16_nh6bo")
 player = NodePath("../..")
 animatedSprite = NodePath("../../PlayerSprite")
 hitComponentOffset = NodePath("../../AttackOffsetNode")
+gun = NodePath("../../Gun")
 
 [node name="ActionIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "aniSprite", "hit_component_collision_shape", "hitComponentOffset")]
 script = ExtResource("17_i1q3e")
@@ -1179,5 +1181,7 @@ libraries = {
 
 [node name="ActionPreview" parent="." groups=["player"] instance=ExtResource("23_ois3v")]
 visible = false
+
+[node name="Gun" parent="." instance=ExtResource("24_yvnbr")]
 
 [connection signal="area_entered" from="AttackOffsetNode/HitComponent" to="." method="_on_hit_component_area_entered"]

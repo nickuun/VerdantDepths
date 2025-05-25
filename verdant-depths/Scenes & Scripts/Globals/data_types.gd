@@ -10,5 +10,6 @@ enum Tools {
 	Attack,
 	Dig,
 	Plant,
-	Water
+	Water,
+	Shoot
 }
