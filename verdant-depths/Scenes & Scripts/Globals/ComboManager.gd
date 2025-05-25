@@ -14,11 +14,11 @@ func register_attack(force_fresh := false):
 			current_attack = min(current_attack + 1, max_combo_index)
 		else: 
 			current_attack = 0
-		print("Clamping to max combo", current_attack)
+		#print("Clamping to max combo", current_attack)
 
 	combo_timer = combo_input_window
 	combo_active = true
-	print("🌀 Combo Registered | Attack:", current_attack, "| Timer:", combo_timer)
+	#print("🌀 Combo Registered | Attack:", current_attack, "| Timer:", combo_timer)
 
 func update(delta: float):
 	#print("update caled")
@@ -29,7 +29,7 @@ func update(delta: float):
 			reset_combo()
 
 func reset_combo():
-	print("❌ Combo Reset")
+	#print("❌ Combo Reset")
 	current_attack = 0
 	combo_active = false
 

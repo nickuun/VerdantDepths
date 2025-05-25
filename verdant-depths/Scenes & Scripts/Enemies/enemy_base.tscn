@@ -1,13 +1,15 @@
-[gd_scene load_steps=121 format=3 uid="uid://bpxqehmip0m27"]
+[gd_scene load_steps=129 format=3 uid="uid://bpxqehmip0m27"]
 
 [ext_resource type="Script" uid="uid://7n2345e3msp5" path="res://Scenes & Scripts/Enemies/enemy.gd" id="1_vasva"]
 [ext_resource type="Texture2D" uid="uid://bw0l3ocvwxn4j" path="res://Sprites/Enemies/Slime1/Attack/Slime1_Attack_full.png" id="2_xoh0k"]
 [ext_resource type="Texture2D" uid="uid://mdtx2ercig0x" path="res://Sprites/Enemies/Slime1/Idle/Slime1_Idle_full.png" id="3_a3xih"]
+[ext_resource type="Texture2D" uid="uid://boba188opo51u" path="res://Sprites/Enemies/Slime1/Hurt/Slime1_Hurt_full.png" id="3_xoh0k"]
 [ext_resource type="Texture2D" uid="uid://beqn6f62c0mbj" path="res://Sprites/Enemies/Slime1/Run/Slime1_Run_full.png" id="4_b5ln3"]
 [ext_resource type="Texture2D" uid="uid://brtm4jag2amyd" path="res://Sprites/Enemies/Slime1/Walk/Slime1_Walk_full.png" id="5_bwqgv"]
 [ext_resource type="Script" uid="uid://pkmyi6ob7byg" path="res://Scenes & Scripts/Helpers/StateMachines/node_state_machine.gd" id="6_pvj5m"]
 [ext_resource type="Script" uid="uid://cdkxsirgy1vve" path="res://Scenes & Scripts/Enemies/enemy_idle_state.gd" id="7_ufuep"]
 [ext_resource type="Script" uid="uid://cd8ruxo8l2lwg" path="res://Scenes & Scripts/Enemies/enemy_chase_state.gd" id="8_3bhnu"]
+[ext_resource type="PackedScene" uid="uid://md68ca6jhu82" path="res://Scenes & Scripts/Helpers/Components/hit_component.tscn" id="9_vasva"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6hrh"]
 atlas = ExtResource("2_xoh0k")
@@ -168,6 +170,26 @@ region = Rect2(512, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5n21"]
 atlas = ExtResource("2_xoh0k")
 region = Rect2(576, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3xih"]
+atlas = ExtResource("3_xoh0k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ln3"]
+atlas = ExtResource("3_xoh0k")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwqgv"]
+atlas = ExtResource("3_xoh0k")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvj5m"]
+atlas = ExtResource("3_xoh0k")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufuep"]
+atlas = ExtResource("3_xoh0k")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyqq6"]
 atlas = ExtResource("3_a3xih")
@@ -593,6 +615,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a3xih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ln3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwqgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvj5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufuep")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_iyqq6")
 }, {
 "duration": 1.0,
@@ -850,7 +892,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8118j"]
 radius = 8.0
 
-[node name="BaseEnemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoh0k"]
+
+[node name="BaseEnemy" type="CharacterBody2D" groups=["enemies"]]
 modulate = Color(1, 0.2, 0.419608, 1)
 collision_layer = 256
 collision_mask = 259
@@ -859,7 +903,7 @@ script = ExtResource("1_vasva")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3k1qo")
-animation = &"AttackLeft"
+animation = &"Hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8118j")
@@ -876,3 +920,11 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("8_3bhnu")
 attack_state_name = "EnemyChaseState"
 animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="HitComponent" parent="." instance=ExtResource("9_vasva")]
+collision_layer = 256
+collision_mask = 8
+
+[node name="DamageShape" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_xoh0k")
+debug_color = Color(0.815658, 0.335635, 0.597959, 0.42)

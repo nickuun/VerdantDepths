@@ -29,6 +29,7 @@ GameState="*res://Scenes & Scripts/Globals/GameState.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
@@ -50,6 +51,7 @@ folder_colors={
 navigation_polygon_source_geometry_group=""
 poi_manager=""
 player=""
+enemies=""
 
 [input]
 

@@ -57,7 +57,7 @@ func start_attack(force_fresh := false):
 	current_attack = ComboManager.get_current_attack()
 
 
-	print("⚔️ Start Attack | Current Index:", current_attack)
+	#print("⚔️ Start Attack | Current Index:", current_attack)
 
 	timer = 0.0
 	attack_motion_time = 0.0
@@ -71,18 +71,18 @@ func start_attack(force_fresh := false):
 
 	match current_attack:
 		0:
-			print("➡️ Playing attack 0")
+			#print("➡️ Playing attack 0")
 			animatedSprite.play("action")
 			animatedSprite.frame = 0
 			animation_player.play("Slash")
 
 		1:
-			print("➡️ Playing attack 1")
+			#print("➡️ Playing attack 1")
 			animation_player.play("Backslash")
 			animatedSprite.frame = 0
 			animatedSprite.play("action")
 		2:
-			print("➡️ Playing attack 2")
+			#print("➡️ Playing attack 2")
 			animation_player.play("Slash")
 			animatedSprite.frame = 0
 			animatedSprite.play("action")

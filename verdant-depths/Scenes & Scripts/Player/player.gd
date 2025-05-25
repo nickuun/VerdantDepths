@@ -22,3 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_component_area_entered(area: Area2D) -> void:
 	print(area.name)
+	var body = area.get_parent()
+	if body.is_in_group("enemies"):  # Make sure enemies are in this group!
+		var damage = GameState.get_current_plant_data().damage
+		body.take_damage(damage, self)

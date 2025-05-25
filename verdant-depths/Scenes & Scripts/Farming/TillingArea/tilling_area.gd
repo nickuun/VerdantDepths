@@ -12,7 +12,13 @@ extends Node2D
 var tilled_positions := {}
 
 func _process(_delta):
+	if !is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("player")
+		if player == null:
+			return  # Still no player
+
 	var current_tool = player.current_tool
+	
 	var mouse_pos = get_global_mouse_position()
 	var snapped_pos = mouse_pos.snapped(Vector2(grid_size, grid_size))
 	var in_range = player.global_position.distance_to(snapped_pos) <= max_till_distance
