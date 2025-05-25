@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=2 format=3 uid="uid://wdsk5r8amaif"]
+
+[ext_resource type="Script" uid="uid://dbktuihecvmh8" path="res://Scenes & Scripts/Globals/PlantData/PlantData.gd" id="1_cx4pu"]
+
+[resource]
+script = ExtResource("1_cx4pu")
+plant_name = "Beetroot"
+animation_name = "Beetroot"
+growth_time = 9.0
+min_yield = 1
+max_yield = 2
+metadata/_custom_type_script = "uid://dbktuihecvmh8"

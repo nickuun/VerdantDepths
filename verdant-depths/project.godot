@@ -23,6 +23,7 @@ FloatingTextManager="*res://Scenes & Scripts/Globals/FloatingTextManager.gd"
 ScreenShakeManager="*res://Scenes & Scripts/Globals/ScreenShakeManager.gd"
 TimeManager="*res://Scenes & Scripts/Globals/TimeManager.gd"
 PlantManager="*res://Scenes & Scripts/Globals/PlantManager.gd"
+GameState="*res://Scenes & Scripts/Globals/GameState.gd"
 
 [display]
 

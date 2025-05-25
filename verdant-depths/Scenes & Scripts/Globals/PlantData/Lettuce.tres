@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=2 format=3 uid="uid://bvgyisycriy6y"]
+
+[ext_resource type="Script" uid="uid://dbktuihecvmh8" path="res://Scenes & Scripts/Globals/PlantData/PlantData.gd" id="1_c1tm6"]
+
+[resource]
+script = ExtResource("1_c1tm6")
+plant_name = "Lettuce"
+animation_name = "Lettuce"
+growth_time = 6.0
+min_yield = 1
+max_yield = 1
+metadata/_custom_type_script = "uid://dbktuihecvmh8"

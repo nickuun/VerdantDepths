@@ -28,6 +28,10 @@ offset_right = 20.0
 offset_bottom = 87.0
 script = ExtResource("2_wk7hc")
 
+[node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
+layout_mode = 2
+tool_type = "Plant"
+
 [node name="ActionToolButton" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
 tool_type = "Attack"
@@ -35,10 +39,6 @@ tool_type = "Attack"
 [node name="ActionToolButton2" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
 tool_type = "Dig"
-
-[node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
-layout_mode = 2
-tool_type = "Plant"
 
 [node name="ActionToolButton4" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
