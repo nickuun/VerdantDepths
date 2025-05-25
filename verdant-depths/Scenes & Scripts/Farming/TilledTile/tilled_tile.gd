@@ -80,9 +80,10 @@ func spawn_drop():
 
 		drop.global_position = global_position
 
-		var angle = randf_range(-PI / 4, PI / 4)
+		var angle = randf_range(0, TAU)  # 360° in radians
 		var distance = randf_range(32, 64)
-		var target = global_position + Vector2.RIGHT.rotated(angle) * distance
+		var offset = Vector2.RIGHT.rotated(angle) * distance
+		var target = global_position + offset
 
 		#drop.plant_data = plant_data  # ← this tells the drop what plant it is
 		drop.launch_to(target)

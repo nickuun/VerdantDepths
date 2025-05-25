@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var arc_height := 32.0
-@export var time_to_land := 0.4
+@export var arc_height := randf_range(24, 48)
 @export var lifetime := 8.0
+@export var time_to_land := 0.4 + randf_range(-0.05, 0.05)
 
 var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO

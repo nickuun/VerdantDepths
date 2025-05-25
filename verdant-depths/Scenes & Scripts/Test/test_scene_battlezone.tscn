@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=10 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://rrkxve3dogfu" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
 [ext_resource type="Script" uid="uid://tu6fwipjfx5t" path="res://Scenes & Scripts/UI/ActionTools/toolbar.gd" id="2_wk7hc"]
 [ext_resource type="PackedScene" uid="uid://dfu5a0yu3etxr" path="res://Scenes & Scripts/Player/player.tscn" id="3_ugtvx"]
+[ext_resource type="PackedScene" uid="uid://b818nrfltg6i7" path="res://Scenes & Scripts/UI/ActionTools/PlantSelector/plant_selector.tscn" id="4_mu4u0"]
 [ext_resource type="PackedScene" uid="uid://bcj3pnjissqpo" path="res://Scenes & Scripts/UI/Time/Time.tscn" id="4_oyabj"]
 [ext_resource type="PackedScene" uid="uid://demmaa3rnqn1p" path="res://Scenes & Scripts/UI/ActionTools/ActionToolButton.tscn" id="5_8043m"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
@@ -31,6 +32,13 @@ script = ExtResource("2_wk7hc")
 [node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
 tool_type = "Plant"
+
+[node name="PlantSelector" parent="UI/Toolbar/ActionToolButton3" instance=ExtResource("4_mu4u0")]
+layout_mode = 1
+offset_left = -27.5
+offset_top = -1.0
+offset_right = -27.5
+offset_bottom = -1.0
 
 [node name="ActionToolButton" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
