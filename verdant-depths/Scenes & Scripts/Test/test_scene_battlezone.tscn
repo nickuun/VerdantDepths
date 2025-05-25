@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://dr7qhicixjjxb"]
 
-[ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
+[ext_resource type="Texture2D" uid="uid://rrkxve3dogfu" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
 [ext_resource type="Script" uid="uid://tu6fwipjfx5t" path="res://Scenes & Scripts/UI/ActionTools/toolbar.gd" id="2_wk7hc"]
 [ext_resource type="PackedScene" uid="uid://dfu5a0yu3etxr" path="res://Scenes & Scripts/Player/player.tscn" id="3_ugtvx"]
