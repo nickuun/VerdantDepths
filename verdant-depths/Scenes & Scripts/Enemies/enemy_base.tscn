@@ -895,7 +895,6 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xoh0k"]
 
 [node name="BaseEnemy" type="CharacterBody2D" groups=["enemies"]]
-modulate = Color(1, 0.2, 0.419608, 1)
 collision_layer = 256
 collision_mask = 259
 motion_mode = 1

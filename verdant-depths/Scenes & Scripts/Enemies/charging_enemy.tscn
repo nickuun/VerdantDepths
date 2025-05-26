@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5h6a73wd86y"]
+
+[ext_resource type="PackedScene" uid="uid://bpxqehmip0m27" path="res://Scenes & Scripts/Enemies/enemy_base.tscn" id="1_5rkqf"]
+[ext_resource type="Script" uid="uid://0skxxjnrr37q" path="res://charging_attack_state.gd" id="2_n7m07"]
+
+[node name="ChargingEnemy" instance=ExtResource("1_5rkqf")]
+modulate = Color(1, 0.360784, 0.403922, 1)
+
+[node name="EnemyChaseState" parent="StateMachine" index="1"]
+attack_range = 45.0
+attack_state_name = "ChargingAttackState"
+
+[node name="ChargingAttackState" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("2_n7m07")
+dash_distance = 60.0
+animated_sprite = NodePath("../../AnimatedSprite2D")
