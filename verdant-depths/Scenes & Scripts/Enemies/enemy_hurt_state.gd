@@ -8,14 +8,13 @@ var parent: CharacterBody2D
 var timer := 0.0
 
 func _on_enter():
-	animation_player.stop()
+	animation_player.play("Hurt")
 	print("HURST STATE ENTER")
 	parent = get_parent().get_parent()
 	timer = hurt_duration
 	parent.velocity = Vector2.ZERO
-
-	animation_player.speed_scale = randf_range(0.8, 1.2)
-	animation_player.play("Hurt")
+	animation_player.speed_scale = 1.0
+	#animation_player.speed_scale = randf_range(0.8, 1.2)
 
 func _on_physics_process(delta):
 	timer -= delta

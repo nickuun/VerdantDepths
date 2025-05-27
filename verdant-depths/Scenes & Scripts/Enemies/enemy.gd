@@ -23,7 +23,9 @@ func take_damage(amount: int, source: Node) -> void:
 
 	FloatingTextManager.show(str(amount), global_position + Vector2(0, -20))
 	ScreenShakeManager.shake(0.3, 0.2)
-
+	animated_sprite.animation = "Hurt"
+	animated_sprite.frame = 0
+	animation_player.play("RESET")
 	# Flip toward attacker
 	var dir = (animated_sprite.global_position - source.global_position).normalized()
 	animated_sprite.flip_h = dir.x < 0
@@ -33,6 +35,7 @@ func take_damage(amount: int, source: Node) -> void:
 	if health <= 0:
 		die()
 	else:
+		#animation_player.play("Hurt")
 		state_machine.transition_to("EnemyHurtState")
 
 func die():
