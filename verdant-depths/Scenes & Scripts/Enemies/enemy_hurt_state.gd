@@ -9,7 +9,7 @@ var timer := 0.0
 
 func _on_enter():
 	animation_player.play("Hurt")
-	print("HURST STATE ENTER")
+	#print("HURST STATE ENTER")
 	parent = get_parent().get_parent()
 	timer = hurt_duration
 	parent.velocity = Vector2.ZERO
