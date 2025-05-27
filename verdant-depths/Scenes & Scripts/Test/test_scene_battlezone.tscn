@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=12 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcj3pnjissqpo" path="res://Scenes & Scripts/UI/Time/Time.tscn" id="4_oyabj"]
 [ext_resource type="PackedScene" uid="uid://demmaa3rnqn1p" path="res://Scenes & Scripts/UI/ActionTools/ActionToolButton.tscn" id="5_8043m"]
 [ext_resource type="PackedScene" uid="uid://b8bvkit6536iy" path="res://Scenes & Scripts/Enemies/melee_enemy.tscn" id="10_hevf4"]
+[ext_resource type="PackedScene" uid="uid://dfcuv736hiu45" path="res://Scenes & Scripts/Helpers/Spawners/EnemySpawner/enemy_spawner.tscn" id="11_xy0ay"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
 [ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_1l1w0"]
 
@@ -102,3 +103,5 @@ position = Vector2(9, 174)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("10_hevf4")]
 position = Vector2(385, 228)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("11_xy0ay")]
