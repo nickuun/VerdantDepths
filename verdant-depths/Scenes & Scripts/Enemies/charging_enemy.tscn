@@ -10,7 +10,6 @@ modulate = Color(1, 0.360784, 0.403922, 1)
 attack_range = 45.0
 attack_state_name = "ChargingAttackState"
 
-[node name="ChargingAttackState" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("animated_sprite")]
+[node name="ChargingAttackState" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("2_n7m07")
 dash_distance = 60.0
-animated_sprite = NodePath("../../AnimatedSprite2D")

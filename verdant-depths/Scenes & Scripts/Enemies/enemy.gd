@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var max_health := 30
 @onready var animated_sprite := $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 var health := 0
 var is_hit := false
@@ -14,35 +16,24 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(amount: int, source: Node) -> void:
-	print("my health is: ", health)
-	#if is_hit:
-		#return
+	if health <= 0:
+		return  # Already dead, do nothing
 
 	health -= amount
-	is_hit = true
 
-	FloatingTextManager.show(
-		str(amount),
-		global_position + Vector2(0, -20)
-	)
+	FloatingTextManager.show(str(amount), global_position + Vector2(0, -20))
+	ScreenShakeManager.shake(0.3, 0.2)
 
-	ScreenShakeManager.shake(0.4, 0.2)
-
-	# Flip toward impact
+	# Flip toward attacker
 	var dir = (animated_sprite.global_position - source.global_position).normalized()
 	animated_sprite.flip_h = dir.x < 0
 
-	# Animate hit
-	animated_sprite.speed_scale = randf_range(0.8, 1.2)
-	animated_sprite.play("Hurt")
-
-	await animated_sprite.animation_finished
-	animated_sprite.speed_scale = 1.0
-
+	# Transition to hurt state
+	var state_machine = $StateMachine
 	if health <= 0:
 		die()
 	else:
-		is_hit = false
+		state_machine.transition_to("EnemyHurtState")
 
 func die():
 	# You can expand this: play death anim, spawn loot, etc.
