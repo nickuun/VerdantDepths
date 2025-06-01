@@ -31,17 +31,17 @@ func _on_physics_process(_delta : float) -> void:
 
 		if abs(to_mouse.x) >= abs(to_mouse.y):
 			if to_mouse.x < 0:
-				animatedSprite.play("walk_right")
+				animatedSprite.play("run_right")
 				animatedSprite.flip_h = true
 			else:
-				animatedSprite.play("walk_right")
+				animatedSprite.play("run_right")
 				animatedSprite.flip_h = false
 		else:
 			if to_mouse.y < 0:
-				animatedSprite.play("walk_up")
+				animatedSprite.play("run_up")
 				animatedSprite.flip_h = false
 			else:
-				animatedSprite.play("walk_down")
+				animatedSprite.play("run_down")
 				animatedSprite.flip_h = false
 	else:
 		player.velocity = Vector2.ZERO

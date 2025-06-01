@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://dfu5a0yu3etxr"]
+[gd_scene load_steps=152 format=3 uid="uid://dfu5a0yu3etxr"]
 
 [ext_resource type="Script" uid="uid://k2ldixw4xwi" path="res://Scenes & Scripts/Player/player.gd" id="1_b842k"]
 [ext_resource type="Texture2D" uid="uid://b7xo43g241byb" path="res://Sprites/Player/Base Character/action.png" id="2_7gjhi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvuq4qb0ony77" path="res://Sprites/Player/Base Character/run.png" id="4_q3gf5"]
 [ext_resource type="Texture2D" uid="uid://dqw1sormjr0o8" path="res://Sprites/Player/Base Character/walk.png" id="4_u4jng"]
 [ext_resource type="Texture2D" uid="uid://biy6528bquoci" path="res://Sprites/Player/Base Character/sword.png" id="6_4mlvl"]
+[ext_resource type="Texture2D" uid="uid://cwbexycywbqrq" path="res://Sprites/Player/Base Character/death.png" id="6_lxcl5"]
 [ext_resource type="Script" uid="uid://pkmyi6ob7byg" path="res://Scenes & Scripts/Helpers/StateMachines/node_state_machine.gd" id="6_n05tl"]
 [ext_resource type="Script" uid="uid://enxkfyt4soo3" path="res://Scenes & Scripts/Player/idle.gd" id="7_hrg5v"]
 [ext_resource type="Texture2D" uid="uid://eldnhm3nmh47" path="res://Sprites/Player/Base Character/water.png" id="7_n2aqe"]
@@ -22,6 +23,7 @@
 [ext_resource type="Script" uid="uid://bidatrvu6lshx" path="res://Scenes & Scripts/Player/action_idle.gd" id="17_i1q3e"]
 [ext_resource type="Script" uid="uid://cj0mw6irm28dj" path="res://Scenes & Scripts/Player/dodge_roll.gd" id="18_kydfn"]
 [ext_resource type="Script" uid="uid://d2y4oarvew82j" path="res://Scenes & Scripts/Player/melee_attack.gd" id="19_r0hj1"]
+[ext_resource type="Script" uid="uid://ph6hvk2ywonq" path="res://Scenes & Scripts/Player/hurt_state.gd" id="23_ee852"]
 [ext_resource type="PackedScene" uid="uid://xeqhj84n5f1s" path="res://Scenes & Scripts/Helpers/Components/ActionPreview/action_preview.tscn" id="23_ois3v"]
 [ext_resource type="PackedScene" uid="uid://blhn603fi2ph2" path="res://Scenes & Scripts/Player/Gun/gun.tscn" id="24_yvnbr"]
 
@@ -148,6 +150,30 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypcb5"]
 atlas = ExtResource("4_k0kvj")
 region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dt1j"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liwdj"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0s16"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu63t"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vkwg"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ikss"]
+atlas = ExtResource("6_lxcl5")
+region = Rect2(400, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3gf5"]
 atlas = ExtResource("2_b842k")
@@ -564,6 +590,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1dt1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liwdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0s16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu63t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vkwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ikss")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_q3gf5")
 }, {
 "duration": 1.0,
@@ -640,7 +689,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_down",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -669,7 +718,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -698,7 +747,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_up",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1080,6 +1129,9 @@ _data = {
 &"Slash": SubResource("Animation_7gjhi")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvnbr"]
+radius = 7.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 texture_filter = 1
@@ -1090,7 +1142,8 @@ current_tool = 1
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, -3.5)
 sprite_frames = SubResource("SpriteFrames_daonq")
-animation = &"action"
+animation = &"run_up"
+frame_progress = 0.270607
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -1172,6 +1225,11 @@ animation_player = NodePath("../../AnimationPlayer")
 hitComponentOffset = NodePath("../../AttackOffsetNode")
 weaponSprite = NodePath("../../AttackOffsetNode/HitComponent/HitComponentCollisionShape2D/AnimatedSprite2D")
 
+[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+script = ExtResource("23_ee852")
+player = NodePath("../..")
+animated_sprite = NodePath("../../PlayerSprite")
+
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 3.0
 
@@ -1185,4 +1243,13 @@ visible = false
 
 [node name="Gun" parent="." instance=ExtResource("24_yvnbr")]
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yvnbr")
+debug_color = Color(0.811722, 0.375298, 0.446885, 0.42)
+
 [connection signal="area_entered" from="AttackOffsetNode/HitComponent" to="." method="_on_hit_component_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

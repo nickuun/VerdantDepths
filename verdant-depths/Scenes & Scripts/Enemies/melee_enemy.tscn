@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://b8bvkit6536iy"]
+[gd_scene load_steps=134 format=3 uid="uid://b8bvkit6536iy"]
 
 [ext_resource type="PackedScene" uid="uid://bpxqehmip0m27" path="res://Scenes & Scripts/Enemies/enemy_base.tscn" id="1_fjrmb"]
 [ext_resource type="Texture2D" uid="uid://cghhfavvtr4rn" path="res://Sprites/Enemies/Slime2/Attack/Slime2_Attack_full.png" id="2_2wbfw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://brtuvhc1e7jbh" path="res://Sprites/Enemies/Slime2/Idle/Slime2_Idle_full.png" id="4_0r5nr"]
 [ext_resource type="Texture2D" uid="uid://cnwm5s4bc2boc" path="res://Sprites/Enemies/Slime2/Run/Slime2_Run_full.png" id="5_hye8j"]
 [ext_resource type="Texture2D" uid="uid://c2actb0a4x26h" path="res://Sprites/Enemies/Slime2/Walk/Slime2_Walk_full.png" id="6_hha3a"]
+[ext_resource type="Script" uid="uid://5lcdbqfbdros" path="res://Scenes & Scripts/Helpers/Components/hurt_component.gd" id="7_hdksr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvwiv"]
 atlas = ExtResource("2_2wbfw")
@@ -913,6 +914,73 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="Animation" id="Animation_hye8j"]
+resource_name = "Attack"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AttackDown"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.624, 0.933333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0r5nr"]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+
 [sub_resource type="Animation" id="Animation_2wbfw"]
 resource_name = "PreAttack"
 tracks/0/type = "value"
@@ -966,40 +1034,29 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
-
-[sub_resource type="Animation" id="Animation_0r5nr"]
-resource_name = "Hurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Hurt"]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0r5nr"]
 _data = {
+&"Attack": SubResource("Animation_hye8j"),
 &"Hurt": SubResource("Animation_0r5nr"),
 &"PreAttack": SubResource("Animation_2wbfw"),
 &"RESET": SubResource("Animation_hdksr")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdksr"]
+radius = 17.0294
 
 [node name="MeleeEnemy" instance=ExtResource("1_fjrmb")]
 
@@ -1015,7 +1072,7 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 animation_player = NodePath("../../AnimationPlayer")
 
 [node name="EnemyAttackState" parent="StateMachine" index="3" node_paths=PackedStringArray("animation_player")]
-animation_player = NodePath("../../AnimatedSprite2D")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="EnemyAttackIdleState" parent="StateMachine" index="4" node_paths=PackedStringArray("animated_sprite")]
 animated_sprite = NodePath("../../AnimatedSprite2D")
@@ -1032,3 +1089,14 @@ animation = &"Hurt"
 libraries = {
 &"": SubResource("AnimationLibrary_0r5nr")
 }
+
+[node name="HurtComponent" type="Area2D" parent="." index="5"]
+collision_layer = 512
+collision_mask = 2
+monitoring = false
+script = ExtResource("7_hdksr")
+metadata/_custom_type_script = "uid://5lcdbqfbdros"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" index="0"]
+shape = SubResource("CircleShape2D_hdksr")
+disabled = true

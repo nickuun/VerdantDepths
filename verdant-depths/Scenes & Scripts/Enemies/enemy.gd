@@ -22,7 +22,9 @@ func take_damage(amount: int, source: Node) -> void:
 	health -= amount
 
 	FloatingTextManager.show(str(amount), global_position + Vector2(0, -20))
-	ScreenShakeManager.shake(0.3, 0.2)
+	#ScreenShakeManager.shake(0.3, 0.2)
+	ScreenShakeManager.shake(0.4, 0.2)
+
 	animated_sprite.animation = "Hurt"
 	animated_sprite.frame = 0
 	animation_player.play("RESET")
@@ -42,3 +44,6 @@ func die():
 	# You can expand this: play death anim, spawn loot, etc.
 	queue_free()
 	print("HERE DIES ME")	
+
+func damage_player():
+	print("")
