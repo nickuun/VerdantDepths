@@ -30,12 +30,20 @@ func _on_physics_process(_delta : float) -> void:
 		hitComponentOffset.rotation += deg_to_rad(0)
 
 		if abs(to_mouse.x) >= abs(to_mouse.y):
-			if to_mouse.x < 0:
-				animatedSprite.play("run_right")
-				animatedSprite.flip_h = true
+			var facing_right = to_mouse.x >= 0
+			var moving_right = direction.x > 0
+			var moving_left = direction.x < 0
+
+			# Always face mouse direction
+			animatedSprite.flip_h = not facing_right
+
+			# Decide animation direction
+			if (facing_right and moving_left) or (not facing_right and moving_right):
+				# Walking opposite to facing → play backwards
+				animatedSprite.play_backwards("run_right")
 			else:
+				# Walking same direction as facing → play normally
 				animatedSprite.play("run_right")
-				animatedSprite.flip_h = false
 		else:
 			if to_mouse.y < 0:
 				animatedSprite.play("run_up")

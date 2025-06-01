@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccuonkghjtvov"]
 
 [ext_resource type="Script" uid="uid://bt46n6tdlldj" path="res://Scenes & Scripts/Player/Gun/Bullet/bullet.gd" id="1_1r6hu"]
-[ext_resource type="Texture2D" uid="uid://cjdfgho3c3tia" path="res://Sprites/Farming/crops/carrot.png" id="1_sasg2"]
+[ext_resource type="Texture2D" uid="uid://pyj33elrv3oh" path="res://Sprites/Farming/crops/carrot.png" id="1_sasg2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sasg2"]
 radius = 6.0

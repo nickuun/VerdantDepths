@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dva1dsme3waeh" path="res://Scenes & Scripts/Player/Gun/gun.gd" id="1_sbef1"]
 [ext_resource type="PackedScene" uid="uid://ccuonkghjtvov" path="res://Scenes & Scripts/Player/Gun/Bullet/bullet.tscn" id="2_nwxsk"]
-[ext_resource type="Texture2D" uid="uid://cvnm0uqhdv5jq" path="res://Sprites/Player/Gun/Line Preview/WhiteDot.png" id="2_uqcgm"]
+[ext_resource type="Texture2D" uid="uid://buu5ojsoubag6" path="res://Sprites/Player/Gun/Line Preview/WhiteDot.png" id="2_uqcgm"]
 
 [node name="Gun" type="Node2D" node_paths=PackedStringArray("line_left", "line_right")]
 modulate = Color(1, 1, 1, 0.552941)

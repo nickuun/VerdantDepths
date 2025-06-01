@@ -26,8 +26,13 @@ func _on_enter() -> void:
 		# Default dodge direction if standing still
 		dodge_direction = Vector2.DOWN
 
-	# Optionally: play dodge animation
-	aniSprite.play("dodgeroll")  # Assuming you create one
+	# Set sprite orientation based on dodge direction (left/right)
+	if dodge_direction.x != 0:
+		aniSprite.flip_h = dodge_direction.x < 0
+
+	# Play dodge animation
+	aniSprite.play("dodgeroll")
+
 
 func _on_process(_delta: float) -> void:
 	# You can add visual effects, trail, i-frames, etc. here
