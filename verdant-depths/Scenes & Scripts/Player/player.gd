@@ -2,8 +2,9 @@ class_name Player
 extends CharacterBody2D
 
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
-@export var max_health: int = 5
+@export var max_health: int = 6
 var current_health: int
+@export var health_ui: PlayerHealthUI
 
 var last_direction: Vector2  # Track last direction for idle animation
 var is_hurt: bool = false
@@ -38,6 +39,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	if current_health <= 0:
 		die()
 	enter_hurt_state(source_position)
+	health_ui.set_current_health(current_health)
 
 func is_in_hurt_state() -> bool:
 	return is_hurt

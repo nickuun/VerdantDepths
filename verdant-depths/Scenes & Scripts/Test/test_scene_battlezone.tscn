@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=13 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://rrkxve3dogfu" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b818nrfltg6i7" path="res://Scenes & Scripts/UI/ActionTools/PlantSelector/plant_selector.tscn" id="4_mu4u0"]
 [ext_resource type="PackedScene" uid="uid://bcj3pnjissqpo" path="res://Scenes & Scripts/UI/Time/Time.tscn" id="4_oyabj"]
 [ext_resource type="PackedScene" uid="uid://demmaa3rnqn1p" path="res://Scenes & Scripts/UI/ActionTools/ActionToolButton.tscn" id="5_8043m"]
+[ext_resource type="PackedScene" uid="uid://8ektjlk1kcwu" path="res://Scenes & Scripts/UI/PlayerHealth/player_health_ui.tscn" id="6_2rv7u"]
 [ext_resource type="PackedScene" uid="uid://b8bvkit6536iy" path="res://Scenes & Scripts/Enemies/melee_enemy.tscn" id="10_hevf4"]
 [ext_resource type="PackedScene" uid="uid://dfcuv736hiu45" path="res://Scenes & Scripts/Helpers/Spawners/EnemySpawner/enemy_spawner.tscn" id="11_xy0ay"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
@@ -20,7 +21,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="TestSprite" type="Sprite2D" parent="UI"]
 position = Vector2(6.5, 171.5)
 texture = ExtResource("1_8043m")
 
@@ -64,6 +65,8 @@ offset_top = -4.5
 offset_right = 279.5
 offset_bottom = 35.5
 
+[node name="PlayerHealthUI" parent="UI" instance=ExtResource("6_2rv7u")]
+
 [node name="GameTilemap" type="Node2D" parent="."]
 z_index = -1
 y_sort_enabled = true
@@ -86,8 +89,9 @@ tile_set = ExtResource("2_pwik8")
 tile_map_data = PackedByteArray("AACHAAsABgABAAAAAACHAAwABgAAAAEAAACHAA0ABgAAAAIAAACKAAkABgABAAAAAACLAAkABgACAAMAAACMAAkABgACAAMAAACNAAkABgACAAMAAACOAAkABgADAAMAAACHABkABgAAAAAAAACHABoABgAAAAEAAACHABsABgAAAAEAAACHABwABgABAAIAAACJAB4ABgACAAMAAACLAB4ABgACAAMAAACKAB4ABgACAAMAAACOAB4ABgACAAMAAACNAB4ABgACAAMAAACMAB4ABgACAAMAAACPAB4ABgACAAMAAACIAB4ABgABAAIAAACXAB8ABgABAAMAAACZAB8ABgACAAMAAACYAB8ABgACAAMAAACcAB8ABgACAAMAAACbAB8ABgACAAMAAACaAB8ABgACAAMAAACdAB8ABgADAAMAAACqAB8ABgAAAAMAAACrACAABgABAAMAAACuACAABgACAAMAAACtACAABgACAAMAAACsACAABgACAAMAAACwACAABgADAAMAAACvACAABgACAAMAAACxAB8ABgAAAAIAAACxAB0ABgAAAAEAAACxAB4ABgAAAAEAAACxABwABgAAAAEAAACxABsABgAAAAEAAACxABoABgAAAAAAAACoAAgABgAAAAMAAACpAAcABgABAAMAAACrAAcABgACAAMAAACqAAcABgACAAMAAACtAAcABgACAAMAAACsAAcABgACAAMAAACuAAcABgACAAMAAACvAAcABgADAAAAAACwAAkABgAAAAAAAACvAAgABgAAAAIAAACwAAoABgAAAAEAAACwAAsABgAAAAEAAACwAAwABgAAAAEAAACwAA0ABgAAAAEAAACwAA4ABgAAAAEAAACwAA8ABgADAAIAAACvAA8ABgABAAMAAACKAAoABgADAAIAAACJAAoABgABAAAAAACJAAsABgADAAIAAACIAAsABgACAAMAAACIAB0ABgAAAAEAAACIABwABgADAAAAAACQAB8ABgAAAAEAAACQACAABgABAAIAAACRACAABgADAAMAAACQAB4ABgADAAAAAAA=")
 tile_set = ExtResource("2_pwik8")
 
-[node name="Player" parent="." instance=ExtResource("3_ugtvx")]
+[node name="Player" parent="." node_paths=PackedStringArray("health_ui") instance=ExtResource("3_ugtvx")]
 position = Vector2(346, 200)
+health_ui = NodePath("../UI/PlayerHealthUI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
