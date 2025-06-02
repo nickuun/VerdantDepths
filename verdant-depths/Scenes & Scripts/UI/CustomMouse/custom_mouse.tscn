@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdvwvnopgshwd"]
+
+[ext_resource type="Script" uid="uid://dja11prsi8v27" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.gd" id="1_d1qhx"]
+[ext_resource type="Texture2D" uid="uid://dhqgdmrbhpijw" path="res://Sprites/UI/Icons/cursor_02.png" id="1_fx6um"]
+[ext_resource type="Texture2D" uid="uid://drykk5ndvoqdg" path="res://Sprites/UI/Icons/cursor_01.png" id="2_d1qhx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1xk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fx6um")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1qhx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CustomMouse" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d1qhx")
+
+[node name="CursorSprite" type="AnimatedSprite2D" parent="."]
+z_index = 10
+z_as_relative = false
+position = Vector2(5, 9)
+sprite_frames = SubResource("SpriteFrames_a1xk3")
+animation = &"idle"
