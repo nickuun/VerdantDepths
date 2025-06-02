@@ -14,7 +14,7 @@ const DAYS_OF_WEEK := ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var time_passed := 0.0
 
 func _process(delta: float) -> void:
-	time_passed += delta
+	time_passed += (delta * 1)
 	if time_passed >= TICK_INTERVAL:
 		time_passed = 0
 		advance_time()
@@ -25,7 +25,8 @@ func advance_time():
 		minute = 0
 		hour += 1
 
-	if hour >= 26:  # 6 → 25 inclusive == 20 hours
+	# Roll over at 30 (6 AM to 5:50 AM = 24h)
+	if hour >= 24:
 		hour = 6
 		day += 1
 
@@ -34,6 +35,8 @@ func advance_time():
 		year += 1
 
 	emit_signal("time_changed")
+
+
 
 func get_formatted_time() -> String:
 	return "%02d:%02d" % [hour, minute]

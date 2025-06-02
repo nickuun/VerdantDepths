@@ -39,6 +39,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	if current_health <= 0:
 		die()
 	enter_hurt_state(source_position)
+	ScreenShakeManager.shake(0.8, 0.2)
 	health_ui.set_current_health(current_health)
 
 func is_in_hurt_state() -> bool:

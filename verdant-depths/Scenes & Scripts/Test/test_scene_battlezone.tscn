@@ -66,6 +66,7 @@ offset_right = 279.5
 offset_bottom = 35.5
 
 [node name="PlayerHealthUI" parent="UI" instance=ExtResource("6_2rv7u")]
+mouse_filter = 2
 
 [node name="GameTilemap" type="Node2D" parent="."]
 z_index = -1

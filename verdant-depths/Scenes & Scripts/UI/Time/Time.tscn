@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcj3pnjissqpo"]
 
 [ext_resource type="Script" uid="uid://bv40tlunf27dk" path="res://Scenes & Scripts/UI/Time/time.gd" id="1_nsyi8"]
-[ext_resource type="FontFile" uid="uid://ndl4u2nlars5" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_1isf8"]
+[ext_resource type="FontFile" uid="uid://dn1oc8aj4aqfn" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_1isf8"]
 
 [node name="Time" type="Control"]
 layout_mode = 3
