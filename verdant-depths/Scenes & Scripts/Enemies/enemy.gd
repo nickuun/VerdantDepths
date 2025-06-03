@@ -43,7 +43,8 @@ func take_damage(amount: int, source: Node) -> void:
 func die():
 	# You can expand this: play death anim, spawn loot, etc.
 	queue_free()
-	print("HERE DIES ME")	
+	#animation_player.play("Death")
+	print("HERE DIES ME")
 
 func damage_player():
 	print("")

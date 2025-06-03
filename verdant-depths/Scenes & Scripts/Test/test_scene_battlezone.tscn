@@ -28,11 +28,11 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 position = Vector2(6.5, 171.5)
 texture = ExtResource("1_8043m")
 
-[node name="Toolbar" type="VBoxContainer" parent="UI"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 20.0
-offset_bottom = 87.0
+[node name="Toolbar" type="HBoxContainer" parent="UI"]
+offset_left = 216.5
+offset_top = 159.5
+offset_right = 317.5
+offset_bottom = 180.5
 script = ExtResource("2_wk7hc")
 
 [node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
@@ -41,10 +41,10 @@ tool_type = "Plant"
 
 [node name="PlantSelector" parent="UI/Toolbar/ActionToolButton3" instance=ExtResource("4_mu4u0")]
 layout_mode = 1
-offset_left = -27.5
-offset_top = -1.0
-offset_right = -27.5
-offset_bottom = -1.0
+offset_left = 0.5
+offset_top = 26.0
+offset_right = 0.5
+offset_bottom = 26.0
 
 [node name="ActionToolButton" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
@@ -69,6 +69,10 @@ offset_right = 279.5
 offset_bottom = 35.5
 
 [node name="PlayerHealthUI" parent="UI" instance=ExtResource("6_2rv7u")]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
 mouse_filter = 2
 
 [node name="GameTilemap" type="Node2D" parent="."]

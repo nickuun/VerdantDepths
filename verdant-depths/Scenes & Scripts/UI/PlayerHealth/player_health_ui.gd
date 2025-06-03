@@ -20,7 +20,7 @@ func set_current_health(value: int) -> void:
 	update_hearts()
 
 func update_hearts() -> void:
-	var heart_width = 18
+	var heart_width = 19
 	var heart_height = 15
 
 	# Number of hearts to display
@@ -37,7 +37,7 @@ func update_hearts() -> void:
 
 	# Calculate pixel widths for each layer
 	var full_width = full_hearts * heart_width
-	var half_width = ((heart_width * full_hearts) + 18) if has_half_heart else 0
+	var half_width = ((heart_width * full_hearts) + 19) if has_half_heart else 0
 	var empty_width = total_hearts * heart_width
 
 	# Update regions for each sprite layer

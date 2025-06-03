@@ -36,11 +36,11 @@ func _on_tool_selected(tool_type):
 func open():
 	show()
 	is_open = true
-	animate_slide(Vector2(20, 0.5))  # on-screen position
+	animate_slide(Vector2(0, -27))  # on-screen position
 
 func close():
 	is_open = false
-	animate_slide(Vector2(-400, 0.5))  # off-screen
+	animate_slide(Vector2(0.5, 26))  # off-screen
 
 func animate_slide(target_pos: Vector2):
 	var tween = create_tween()

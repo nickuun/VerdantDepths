@@ -94,6 +94,6 @@ func fire_projectile(position: Vector2, direction: Vector2, charge_progress: flo
 		bullet.rotation = direction.angle()
 		bullet.direction = direction
 		bullet.charge_progress = charge_progress
-		bullet.initialize()  # <-- important!
+		bullet.initialize()
 	else:
 		print("Bullet scene not assigned!")
