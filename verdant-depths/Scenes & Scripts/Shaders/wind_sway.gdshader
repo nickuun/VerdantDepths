@@ -15,9 +15,15 @@ uniform float offset = 0.0; // For randomizing individual sway
 float getWind(vec2 vertex, vec2 uv, float time){
     float diff = maxStrength - minStrength;
     float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
-    float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0 - uv.y) - heightOffset);
+
+    // Include both X and Y position to simulate 2D wind flow
+    float windPhase = time + (vertex.x + vertex.y) * 0.1; // Adjust 0.1 for spread/speed
+
+    float wind = (sin(windPhase) + cos(windPhase * detail)) * strength * max(0.0, (1.0 - uv.y) - heightOffset);
     return wind;
 }
+
+
 
 void vertex() {
     float time = TIME * speed + offset;
