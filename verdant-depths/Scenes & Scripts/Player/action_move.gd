@@ -12,12 +12,12 @@ func _on_physics_process(_delta : float) -> void:
 	var direction: Vector2 = GameInputEvents.movement_input()
 	var speed_multiplier = 1.0
 
-	if player.current_tool == DataTypes.Tools.Shoot and Input.is_action_pressed("click"): 
-		if not gun.is_charging:
-			gun.start_charging()
-		speed_multiplier = 0.4  # slower while charging
-	elif gun.is_charging:
-		gun.stop_charging_and_fire()
+	#if player.current_tool == DataTypes.Tools.Shoot and Input.is_action_pressed("click"): 
+		#if not gun.is_charging:
+			#gun.start_charging()
+		#speed_multiplier = 0.4  # slower while charging
+	#elif gun.is_charging:
+		#gun.stop_charging_and_fire()
 
 	if direction != Vector2.ZERO:
 		player.velocity = direction * speed * speed_multiplier

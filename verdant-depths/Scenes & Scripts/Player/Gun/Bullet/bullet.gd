@@ -18,8 +18,6 @@ func _process(delta):
 	#print(charge_progress)
 	global_position += direction.normalized() * speed * delta
 	
-
-
 func _on_area_entered(area: Area2D) -> void:
 	print(area.name)
 	var body = area.get_parent()

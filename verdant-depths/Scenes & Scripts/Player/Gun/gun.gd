@@ -93,6 +93,7 @@ func fire_projectile(position: Vector2, direction: Vector2, charge_progress: flo
 		bullet.global_position = position
 		bullet.rotation = direction.angle()
 		bullet.direction = direction
+		
 		bullet.charge_progress = charge_progress
 		bullet.initialize()
 	else:

@@ -13,6 +13,12 @@ static func is_momement_input() -> bool:
 	else:
 		return true
 
+static func is_fire_pressed() -> bool:
+	return Input.is_action_pressed("shoot") or Input.is_action_just_pressed("shoot")
+
+static func is_reload_pressed() -> bool:
+	return Input.is_action_just_pressed("reload")
+
 static func use_tool():
 	var use_tool_value: bool = Input.is_action_pressed("click") or Input.is_action_just_pressed("click")
 	return use_tool_value
