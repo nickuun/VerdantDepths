@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://ddu5l8xibdase"]
 
 [ext_resource type="Script" uid="uid://iisu752n13fs" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.gd" id="1_1rsv7"]
-[ext_resource type="Texture2D" uid="uid://dlcuqxo0uq32" path="res://Sprites/Objects/Training/Training Dummy Sprite Sheet .png" id="2_wk24j"]
+[ext_resource type="Texture2D" uid="uid://pu5wuvcjqmbv" path="res://Sprites/Objects/Training/Training Dummy Sprite Sheet .png" id="2_wk24j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rsv7"]
 radius = 5.0

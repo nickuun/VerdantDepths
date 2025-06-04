@@ -13,9 +13,9 @@ func _physics_process(delta: float) -> void:
 		play_idle_animation()
 
 func play_click_animation():
-	if not cursor_sprite.is_playing() or cursor_sprite.animation != "click":
+	if cursor_sprite.animation != "click":
 		cursor_sprite.play("click")
 
 func play_idle_animation():
-	if not cursor_sprite.is_playing() or cursor_sprite.animation != "idle":
+	if cursor_sprite.animation != "idle":
 		cursor_sprite.play("idle")

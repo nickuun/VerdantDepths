@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=15 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://rrkxve3dogfu" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
 [ext_resource type="PackedScene" uid="uid://bdvwvnopgshwd" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.tscn" id="13_6sl0t"]
 [ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_1l1w0"]
+[ext_resource type="PackedScene" uid="uid://c327cy6sgy8e4" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.tscn" id="14_4mm4l"]
 
 [node name="TestSceneHouseTilemap" type="Node2D"]
 y_sort_enabled = true
@@ -105,7 +106,7 @@ health_ui = NodePath("../UI/PlayerHealthUI")
 zoom = Vector2(2, 2)
 
 [node name="Dummy" parent="." instance=ExtResource("12_u77y1")]
-position = Vector2(278, 198)
+position = Vector2(275, 198)
 
 [node name="Dummy2" parent="." instance=ExtResource("12_u77y1")]
 position = Vector2(437, 200)
@@ -117,3 +118,24 @@ position = Vector2(9, 174)
 position = Vector2(385, 228)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("11_xy0ay")]
+
+[node name="TilledTile" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(311, 161)
+
+[node name="TilledTile2" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(327, 161)
+
+[node name="TilledTile3" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(343, 161)
+
+[node name="TilledTile4" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(359, 161)
+
+[node name="TilledTile5" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(375, 161)
+
+[node name="TilledTile6" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(375, 177)
+
+[node name="TilledTile7" parent="." instance=ExtResource("14_4mm4l")]
+position = Vector2(359, 177)

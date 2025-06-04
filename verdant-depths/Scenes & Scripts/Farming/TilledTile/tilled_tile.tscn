@@ -1,10 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://c327cy6sgy8e4"]
+[gd_scene load_steps=36 format=3 uid="uid://c327cy6sgy8e4"]
 
 [ext_resource type="Script" uid="uid://jjfjno47qpi7" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.gd" id="1_huopp"]
 [ext_resource type="Texture2D" uid="uid://bjxfgtnwak81k" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
 [ext_resource type="Texture2D" uid="uid://pyj33elrv3oh" path="res://Sprites/Farming/crops/carrot.png" id="2_3jrtw"]
 [ext_resource type="PackedScene" uid="uid://bhjmg5hohwmen" path="res://Scenes & Scripts/Drops/Items/item_drop.tscn" id="2_apydh"]
+[ext_resource type="Texture2D" uid="uid://dc7sbjljrg8ty" path="res://Sprites/Farming/dug_land.png" id="4_4yawx"]
 [ext_resource type="Texture2D" uid="uid://b58oso703xri8" path="res://Sprites/Farming/crops/crops - all.png" id="5_7y0kq"]
+[ext_resource type="Shader" uid="uid://c4ievhw4652k4" path="res://Scenes & Scripts/Shaders/wind_sway.gdshader" id="5_pqk26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb3p5"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jrtw"]
 atlas = ExtResource("1_llvpn")
@@ -43,6 +48,14 @@ animations = [{
 "loop": true,
 "name": &"2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4yawx")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yawx"]
@@ -76,6 +89,18 @@ animations = [{
 "name": &"empty",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ite5"]
+shader = ExtResource("5_pqk26")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.1
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.1
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afckb"]
 atlas = ExtResource("5_7y0kq")
@@ -241,29 +266,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb3p5"]
-size = Vector2(16, 16)
-
 [node name="TilledTile" type="Node2D"]
 script = ExtResource("1_huopp")
 shared_drop_scene = ExtResource("2_apydh")
-
-[node name="SoilSprite" type="AnimatedSprite2D" parent="."]
-z_index = -1
-position = Vector2(0, 7)
-sprite_frames = SubResource("SpriteFrames_7y0kq")
-animation = &"1"
-
-[node name="CompostSprite" type="AnimatedSprite2D" parent="."]
-z_index = -1
-position = Vector2(0, 7)
-sprite_frames = SubResource("SpriteFrames_7ite5")
-animation = &"empty"
-
-[node name="PlantSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
-sprite_frames = SubResource("SpriteFrames_afckb")
-animation = &"Empty"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 7)
@@ -272,5 +277,23 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cb3p5")
+
+[node name="SoilSprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_7y0kq")
+animation = &"4"
+
+[node name="CompostSprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_7ite5")
+animation = &"empty"
+
+[node name="PlantSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_7ite5")
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_afckb")
+animation = &"Empty"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
