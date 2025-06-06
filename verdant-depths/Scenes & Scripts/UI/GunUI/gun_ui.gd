@@ -11,7 +11,6 @@ func _process(_delta):
 	reserve_label.text = str(InventoryManager.get_crop_ammo(crop_type))
 
 func update_ui():
-	print("UPDATING UI")
 	var gun_data = InventoryManager.get_current_gun()
 
 	# Play gun icon animation
@@ -23,7 +22,7 @@ func update_ui():
 	crop_icons.clear()
 
 	# Rebuild crop clip visuals
-	var clip_size = gun_data.get("clip_size", 5)
+	var clip_size = gun_data.get("clip_size", 5) 
 	
 	print("clip_size is ", clip_size)
 	for i in range(clip_size):

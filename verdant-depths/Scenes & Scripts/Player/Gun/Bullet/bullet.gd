@@ -2,6 +2,7 @@ extends Area2D
 
 @export var base_speed := 80.0
 @export var max_speed := 300.0
+@export var knockback_strength = 50
 var speed := 0.0
 var direction := Vector2.ZERO
 var charge_progress := 1.0  # 0.0 to 1.0

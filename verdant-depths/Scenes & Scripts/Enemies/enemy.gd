@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var knockback_vector := Vector2.ZERO
 
 var health := 0
 var is_hit := false
@@ -31,6 +32,16 @@ func take_damage(amount: int, source: Node) -> void:
 	# Flip toward attacker
 	var dir = (animated_sprite.global_position - source.global_position).normalized()
 	animated_sprite.flip_h = dir.x < 0
+
+		# Compute direction from source to self
+	var direction = (global_position - source.global_position).normalized()
+
+	var strength := 80.0  # Default knockback
+	if source.has_method("get") and "knockback_strength" in source:
+		strength = source.get("knockback_strength")	
+
+	# Store the knockback vector to be used later
+	knockback_vector = direction * strength
 
 	# Transition to hurt state
 	var state_machine = $StateMachine

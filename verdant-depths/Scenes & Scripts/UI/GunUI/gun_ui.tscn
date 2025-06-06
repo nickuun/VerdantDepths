@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjm7625dcmyf8"]
 
-[ext_resource type="Texture2D" uid="uid://bu7pl5mjckpl3" path="res://Sprites/Player/Gun/GunSprites/CarrotLauncher/CarrotLauncher.png" id="1_4dxja"]
+[ext_resource type="Texture2D" uid="uid://h8sehyhj645e" path="res://Sprites/Player/Gun/GunSprites/CarrotLauncher/CarrotLauncher.png" id="1_4dxja"]
 [ext_resource type="Script" uid="uid://dxmcvyf1wnbqd" path="res://Scenes & Scripts/UI/GunUI/gun_ui.gd" id="1_5nxgm"]
-[ext_resource type="FontFile" uid="uid://dn1oc8aj4aqfn" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_eranh"]
-[ext_resource type="Texture2D" uid="uid://b58oso703xri8" path="res://Sprites/Farming/crops/crops - all.png" id="4_gnajk"]
+[ext_resource type="FontFile" uid="uid://ndl4u2nlars5" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_eranh"]
+[ext_resource type="Texture2D" uid="uid://vgv1cihf6qg" path="res://Sprites/Farming/crops/crops - all.png" id="4_gnajk"]
 
 [node name="GunUI" type="Control" groups=["gun_ui"]]
 layout_mode = 3
