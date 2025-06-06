@@ -3,7 +3,8 @@ extends Node
 var crop_ammo: Dictionary = {
 	"carrot": 0,
 	"corn": 0,
-	"potato": 0
+	"potato": 0,
+	"pumpkin": 0
 }
 
 var guns: Array = []
@@ -13,6 +14,8 @@ func _ready():
 	add_crop("carrot", 50)
 	add_crop("corn", 20)
 	add_crop("potato", 5)
+	add_crop("pumpkin", 10)
+	
 		# Add example guns
 	add_gun({
 		"name": "Carrot Blaster",
@@ -31,6 +34,16 @@ func _ready():
 		"clip_size": 2,
 		"reload_time": 1.5
 	})
+	
+	add_gun({
+	"name": "Pumpkin Cannon",
+	"crop_type": "pumpkin",
+	"fire_rate": 1.0,
+	"shot_type": "charged",
+	"clip_size": 1,
+	"reload_time": 2.0
+	})
+
 
 	add_gun({
 		"name": "Sniper Tuber",

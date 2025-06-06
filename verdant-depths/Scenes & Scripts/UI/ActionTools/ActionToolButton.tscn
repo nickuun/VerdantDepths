@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://demmaa3rnqn1p"]
 
-[ext_resource type="Texture2D" uid="uid://b42hm7f0yiig1" path="res://Sprites/UI/Icons/itemdisc_02.png" id="1_1jhvs"]
-[ext_resource type="Texture2D" uid="uid://dnd1l42mbt30e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="2_nxmi8"]
-[ext_resource type="Texture2D" uid="uid://dbvnmkov11681" path="res://Sprites/UI/Icons/pickaxe.png" id="3_bggjh"]
+[ext_resource type="Texture2D" uid="uid://bod0dbckd3e3n" path="res://Sprites/UI/Icons/itemdisc_02.png" id="1_1jhvs"]
+[ext_resource type="Texture2D" uid="uid://bp2qdjvuy8j7e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="2_nxmi8"]
+[ext_resource type="Texture2D" uid="uid://bjsvrgf6y4ytx" path="res://Sprites/UI/Icons/pickaxe.png" id="3_bggjh"]
 [ext_resource type="Script" uid="uid://cgmnpxpi4hlkw" path="res://Scenes & Scripts/UI/ActionTools/action_tool_button.gd" id="3_nxmi8"]
 
 [node name="ActionToolButton" type="TextureButton"]

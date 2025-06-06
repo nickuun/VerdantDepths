@@ -5,6 +5,8 @@ extends Node2D
 @export var shot_type: String = "single" # or "shotgun", "sniper", etc.
 
 @export var crop_type: String = "carrot"
+var _charge_timer: float = 0.0
+var charge_duration := 0.8
 
 @export var clip_size: int = 5
 @export var reload_time: float = 1.0
@@ -37,13 +39,24 @@ func initialize():
 func _process(_delta):
 	look_at(get_global_mouse_position())
 
-	_is_firing = GameInputEvents.is_fire_pressed()
-	if _is_firing:
-		_try_fire()
+	var is_pressing = GameInputEvents.is_fire_pressed()
+
+	# Charging logic
+	if shot_type == "charged":
+		if is_pressing:
+			_charge_timer += _delta
+		elif _charge_timer >= charge_duration:
+			_try_fire_charged()
+			_charge_timer = 0.0
+		elif not is_pressing:
+			_charge_timer = 0.0
+	else:
+		if is_pressing:
+			_try_fire()
 
 	if GameInputEvents.is_reload_pressed():
 		_reload()
-	
+		
 	if GameInputEvents.is_switch_gun_next_pressed():
 		_switch_gun(1)
 
@@ -116,6 +129,8 @@ func _fire():
 		_:
 			_fire_single()
 
+
+
 func _fire_single():
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = muzzle.global_position
@@ -142,3 +157,32 @@ func _fire_sniper():
 	# Could add charging, delay, etc.
 	_fire_single()
 	
+func _try_fire_charged():
+	if not _can_fire or _reloading:
+		return
+
+	if _current_ammo <= 0:
+		_reload()
+		return
+
+	_can_fire = false
+	_current_ammo -= 1
+
+	_fire_charged()
+
+	InventoryManager.get_current_gun()["current_ammo"] = _current_ammo
+
+	gun_ui.update_clip_ammo(_current_ammo)
+
+	await get_tree().create_timer(1.0 / fire_rate).timeout
+	_can_fire = true
+	
+func _fire_charged():
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = muzzle.global_position
+	bullet.rotation = muzzle.global_rotation
+	var direction = Vector2.RIGHT.rotated(rotation)
+	bullet.direction = direction
+	bullet.scale *= 3.0
+	bullet.initialize()
+	get_tree().current_scene.add_child(bullet)
