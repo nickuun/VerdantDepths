@@ -28,3 +28,9 @@ static func dodge_pressed() -> bool:
 
 static func melee_pressed() -> bool:
 	return Input.is_action_just_pressed("melee_attack")
+
+static func is_switch_gun_next_pressed() -> bool:
+	return Input.is_action_just_pressed("scroll_up")
+
+static func is_switch_gun_prev_pressed() -> bool:
+	return Input.is_action_just_pressed("scroll_down")
