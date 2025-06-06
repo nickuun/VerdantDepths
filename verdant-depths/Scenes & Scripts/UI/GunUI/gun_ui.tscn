@@ -43,8 +43,3 @@ position = Vector2(41, 171)
 texture = ExtResource("4_gnajk")
 region_enabled = true
 region_rect = Rect2(113, 48, 15, 15)
-
-[node name="ClipIcons" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0

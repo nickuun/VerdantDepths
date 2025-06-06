@@ -270,6 +270,4 @@ texture_normal = ExtResource("1_iubrc")
 [node name="PlantSprite" type="AnimatedSprite2D" parent="ButtonContainer/PlantButton"]
 position = Vector2(9, 11)
 sprite_frames = SubResource("SpriteFrames_u6ta5")
-animation = &"carrot"
-frame = 3
-frame_progress = 1.0
+animation = &"pumpkin"

@@ -29,41 +29,34 @@ func plant_seed():
 	plant_data = data
 
 	plant_sprite.animation = plant_data.animation_name
-	plant_sprite.frame = 0
+	plant_sprite.frame = 0  # start at first frame
 
 	var randomized = plant_data.growth_time * (1.0 + randf_range(-0.2, 0.2))
 	var ms = int(randomized * 1000.0)
 	PlantManager.register_plant(self, ms)
 
-
 func advance_growth():
 	if not has_seed:
 		return
-	match growth_stage:
-		1:
-			growth_stage = 2
-			plant_sprite.frame = growth_stage -1
-		2:
-			growth_stage = 3
-			plant_sprite.frame = growth_stage -1
 
-		_:
+	match growth_stage:
+		1, 2, 3:
+			growth_stage += 1
+			plant_sprite.frame = growth_stage - 1
+		4:
 			print("Plant is fully grown!")
 
 func clear_tile():
 	has_seed = false
 	growth_stage = 0
 	plant_sprite.animation = "Empty"
-	
-	#plant_sprite.frame = -1  # Hides it (or use a blank frame)
-
+	plant_sprite.frame = 0  # if your "Empty" animation has a blank frame
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("TIME FOR HARVEST? GROWTH STAGE ->", growth_stage)
-	if growth_stage == 3:
+	if growth_stage == 4:
 		print("Harvesting plant!")
 		call_deferred("harvest")
-
 
 func harvest():
 	clear_tile()

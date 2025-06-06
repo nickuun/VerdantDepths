@@ -2,7 +2,7 @@ extends Control
 
 @export var animation_duration := 0.3
 @export var crop_name := "carrot"
-@export var plant_names := ["carrot", "potato", "radish", "onion", "beetroot", "lettuce"]
+@export var plant_names := ["carrot", "potato", "radish", "onion", "beetroot", "lettuce", "pumpkin"]
 @onready var button_container := $ButtonContainer
 @onready var button_template := $ButtonContainer/PlantButton
 

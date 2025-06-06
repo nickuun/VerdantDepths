@@ -23,12 +23,12 @@ func _process(_delta: float) -> void:
 
 		var stages_to_advance = int(time_since_start / growth_duration)
 
-		if stages_to_advance > 0 and tile.growth_stage < 3:
+		if stages_to_advance > 0 and tile.growth_stage < 4:
 			tile.advance_growth()
 			plant_data["start_time"] = now
 			plant_data["stage"] = tile.growth_stage
 
-		if tile.growth_stage >= 3:
+		if tile.growth_stage >= 4:
 			tracked_plants.remove_at(i)
 
 		i -= 1
