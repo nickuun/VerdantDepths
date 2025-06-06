@@ -30,10 +30,10 @@ position = Vector2(6.5, 171.5)
 texture = ExtResource("1_8043m")
 
 [node name="Toolbar" type="HBoxContainer" parent="UI"]
-offset_left = 216.5
-offset_top = 159.5
-offset_right = 317.5
-offset_bottom = 180.5
+offset_left = 218.0
+offset_top = 158.0
+offset_right = 319.0
+offset_bottom = 179.0
 script = ExtResource("2_wk7hc")
 
 [node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
@@ -118,5 +118,6 @@ position = Vector2(9, 174)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("10_hevf4")]
 position = Vector2(385, 228)
+max_health = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("11_xy0ay")]

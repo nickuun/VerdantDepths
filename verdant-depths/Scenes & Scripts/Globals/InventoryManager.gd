@@ -6,15 +6,15 @@ var crop_ammo: Dictionary = {
 	"potato": 0,
 	"pumpkin": 0
 }
-
+var seen_crops: Dictionary = {} # New: track whether we've seen a crop at all
 var guns: Array = []
 var selected_gun_index: int = 0
 
 func _ready():
 	add_crop("carrot", 50)
-	add_crop("corn", 20)
-	add_crop("potato", 5)
-	add_crop("pumpkin", 10)
+	add_crop("corn", 0)
+	add_crop("potato", 10)
+	add_crop("pumpkin", 3)
 	
 		# Add example guns
 	add_gun({
@@ -56,9 +56,13 @@ func _ready():
 
 func add_crop(crop_name: String, amount: int):
 	crop_ammo[crop_name] = crop_ammo.get(crop_name, 0) + amount
-
+	seen_crops[crop_name] = true
+	
 func get_crop_ammo(crop_name: String) -> int:
 	return crop_ammo.get(crop_name, 0)
+
+func has_seen_crop(crop_name: String) -> bool:
+	return seen_crops.has(crop_name) and seen_crops[crop_name]
 
 func use_crop_ammo(crop_name: String, amount: int) -> bool:
 	var current = get_crop_ammo(crop_name)

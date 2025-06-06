@@ -20,7 +20,8 @@ func _on_hit_component_area_entered(area: Area2D) -> void:
 	print(area.name)
 	var body = area.get_parent()
 	if body.is_in_group("enemies"):  # Make sure enemies are in this group!
-		var damage = GameState.get_current_plant_data().damage
+		#var damage = GameState.get_current_plant_data().damage
+		var damage = 1
 		body.take_damage(damage, self)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

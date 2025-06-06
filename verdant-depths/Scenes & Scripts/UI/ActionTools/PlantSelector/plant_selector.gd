@@ -1,8 +1,8 @@
 extends Control
 
 @export var animation_duration := 0.3
-@export var crop_name := "Carrot"
-@export var plant_names := ["Carrot", "Potato", "Radish", "Onion", "Beetroot", "Lettuce"]
+@export var crop_name := "carrot"
+@export var plant_names := ["carrot", "potato", "radish", "onion", "beetroot", "lettuce"]
 @onready var button_container := $ButtonContainer
 @onready var button_template := $ButtonContainer/PlantButton
 
@@ -10,20 +10,27 @@ var is_open := false
 
 func _ready():
 	hide()
-	var toolbar = self.get_parent()  # 👈 adjust this path to your scene
+	var toolbar = self.get_parent()
 	if toolbar:
 		toolbar.connect("tool_selected", Callable(self, "_on_tool_selected"))
-		
-		# Dynamically create buttons
-	button_template.visible = false  # Hide the original
-	for name in plant_names:
+
+	button_template.visible = false  # Hide template
+
+	for crop in InventoryManager.crop_ammo.keys():
+		if not InventoryManager.has_seen_crop(crop):
+			continue  # Skip crops never seen before
+
 		var new_button = button_template.duplicate()
 		new_button.visible = true
-		new_button.name = name
-		new_button.connect("pressed", Callable(self, "_on_plant_button_pressed").bind(name))
-		new_button.get_child(0).play(name)
-		button_container.add_child(new_button)
+		new_button.name = crop
+		new_button.connect("pressed", Callable(self, "_on_plant_button_pressed").bind(crop))
+		new_button.get_child(0).play(crop)
 
+		var has_ammo = InventoryManager.get_crop_ammo(crop) > 0
+		new_button.disabled = not has_ammo
+		new_button.modulate = Color(1, 1, 1, 1) if has_ammo else Color(1, 1, 1, 0.4)
+
+		button_container.add_child(new_button)
 
 func _on_tool_selected(tool_type):
 	print("Tool selected:", tool_type)
