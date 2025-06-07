@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c327cy6sgy8e4"]
+[gd_scene load_steps=46 format=3 uid="uid://c327cy6sgy8e4"]
 
 [ext_resource type="Script" uid="uid://jjfjno47qpi7" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.gd" id="1_huopp"]
 [ext_resource type="Texture2D" uid="uid://bjxfgtnwak81k" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
@@ -198,6 +198,22 @@ region = Rect2(48, 0, 16, 32)
 atlas = ExtResource("5_7y0kq")
 region = Rect2(64, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyrwr"]
+atlas = ExtResource("7_pqk26")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fox13"]
+atlas = ExtResource("7_pqk26")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvnji"]
+atlas = ExtResource("7_pqk26")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h53r"]
+atlas = ExtResource("7_pqk26")
+region = Rect2(144, 96, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_afckb"]
 animations = [{
 "frames": [{
@@ -310,6 +326,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"Radish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyrwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fox13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvnji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h53r")
+}],
+"loop": false,
+"name": &"Wheat",
 "speed": 5.0
 }]
 

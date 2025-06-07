@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b818nrfltg6i7"]
+[gd_scene load_steps=38 format=3 uid="uid://b818nrfltg6i7"]
 
 [ext_resource type="Texture2D" uid="uid://bp2qdjvuy8j7e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="1_iubrc"]
 [ext_resource type="Script" uid="uid://t75vwq58q75k" path="res://Scenes & Scripts/UI/ActionTools/PlantSelector/plant_selector.gd" id="1_vy7yw"]
@@ -116,6 +116,22 @@ region = Rect2(48, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t0ru"]
 atlas = ExtResource("3_l6k77")
 region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6k77"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe5oi"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqdyt"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n1jg"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 96, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u6ta5"]
 animations = [{
@@ -247,6 +263,23 @@ animations = [{
 "loop": false,
 "name": &"radish",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6k77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe5oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqdyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n1jg")
+}],
+"loop": false,
+"name": &"wheat",
+"speed": 5.0
 }]
 
 [node name="PlantSelector" type="Control"]
@@ -270,4 +303,4 @@ texture_normal = ExtResource("1_iubrc")
 [node name="PlantSprite" type="AnimatedSprite2D" parent="ButtonContainer/PlantButton"]
 position = Vector2(9, 11)
 sprite_frames = SubResource("SpriteFrames_u6ta5")
-animation = &"pumpkin"
+animation = &"wheat"

@@ -10,7 +10,7 @@ var plant_data_by_name := {
 	"beetroot": preload("res://Scenes & Scripts/Globals/PlantData/Beetroot.tres"),
 	"lettuce": preload("res://Scenes & Scripts/Globals/PlantData/Lettuce.tres"),
 	"pumpkin": preload("res://Scenes & Scripts/Globals/PlantData/Pumpkin.tres"),
-	
+	"wheat": preload("res://Scenes & Scripts/Globals/PlantData/Wheat.tres"),
 }
 
 func get_current_plant_data() -> PlantData:

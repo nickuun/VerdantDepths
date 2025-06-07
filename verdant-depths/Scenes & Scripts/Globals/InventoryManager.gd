@@ -4,8 +4,10 @@ var crop_ammo: Dictionary = {
 	"carrot": 0,
 	"corn": 0,
 	"potato": 0,
-	"pumpkin": 0
+	"pumpkin": 0,
+	"wheat": 0
 }
+
 var seen_crops: Dictionary = {} # New: track whether we've seen a crop at all
 var guns: Array = []
 var selected_gun_index: int = 0
@@ -15,6 +17,7 @@ func _ready():
 	add_crop("corn", 0)
 	add_crop("potato", 10)
 	add_crop("pumpkin", 3)
+	add_crop("wheat", 3)
 	
 		# Add example guns
 	add_gun({

@@ -25,3 +25,4 @@ func _on_area_entered(area: Area2D) -> void:
 	if body.is_in_group("enemies"):  # Make sure enemies are in this group!
 		var damage = 1
 		body.take_damage(damage, self)
+		self.queue_free()
