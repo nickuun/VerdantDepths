@@ -20,6 +20,8 @@ collision_layer = 256
 collision_mask = 259
 motion_mode = 1
 script = ExtResource("1_vasva")
+max_health = null
+damage_particle_color = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8118j")

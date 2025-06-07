@@ -1,12 +1,12 @@
 [gd_scene load_steps=146 format=3 uid="uid://b8bvkit6536iy"]
 
 [ext_resource type="PackedScene" uid="uid://bpxqehmip0m27" path="res://Scenes & Scripts/Enemies/enemy_base.tscn" id="1_fjrmb"]
-[ext_resource type="Texture2D" uid="uid://cghhfavvtr4rn" path="res://Sprites/Enemies/Slime2/Attack/Slime2_Attack_full.png" id="2_2wbfw"]
-[ext_resource type="Texture2D" uid="uid://yg1qq3615tio" path="res://Sprites/Enemies/Slime2/Death/Slime2_Death_full.png" id="3_0r5nr"]
-[ext_resource type="Texture2D" uid="uid://dvwgevc7lp8fr" path="res://Sprites/Enemies/Slime2/Hurt/Slime2_Hurt_full.png" id="3_hdksr"]
-[ext_resource type="Texture2D" uid="uid://brtuvhc1e7jbh" path="res://Sprites/Enemies/Slime2/Idle/Slime2_Idle_full.png" id="4_0r5nr"]
-[ext_resource type="Texture2D" uid="uid://cnwm5s4bc2boc" path="res://Sprites/Enemies/Slime2/Run/Slime2_Run_full.png" id="5_hye8j"]
-[ext_resource type="Texture2D" uid="uid://c2actb0a4x26h" path="res://Sprites/Enemies/Slime2/Walk/Slime2_Walk_full.png" id="6_hha3a"]
+[ext_resource type="Texture2D" uid="uid://b0jre6inetvlj" path="res://Sprites/Enemies/Slime2/Attack/Slime2_Attack_full.png" id="2_2wbfw"]
+[ext_resource type="Texture2D" uid="uid://pqao1p20ktmr" path="res://Sprites/Enemies/Slime2/Death/Slime2_Death_full.png" id="3_0r5nr"]
+[ext_resource type="Texture2D" uid="uid://c450tei04oorx" path="res://Sprites/Enemies/Slime2/Hurt/Slime2_Hurt_full.png" id="3_hdksr"]
+[ext_resource type="Texture2D" uid="uid://dbgg0q3dokrul" path="res://Sprites/Enemies/Slime2/Idle/Slime2_Idle_full.png" id="4_0r5nr"]
+[ext_resource type="Texture2D" uid="uid://dfwr6smr064sv" path="res://Sprites/Enemies/Slime2/Run/Slime2_Run_full.png" id="5_hye8j"]
+[ext_resource type="Texture2D" uid="uid://u4cjqk85jase" path="res://Sprites/Enemies/Slime2/Walk/Slime2_Walk_full.png" id="6_hha3a"]
 [ext_resource type="Script" uid="uid://5lcdbqfbdros" path="res://Scenes & Scripts/Helpers/Components/hurt_component.gd" id="7_hdksr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvwiv"]
@@ -1177,6 +1177,7 @@ _data = {
 radius = 17.0294
 
 [node name="MeleeEnemy" instance=ExtResource("1_fjrmb")]
+damage_particle_color = Color(0.321569, 0.407843, 0.545098, 1)
 
 [node name="EnemyIdleState" parent="StateMachine" index="0" node_paths=PackedStringArray("animated_sprite")]
 detection_radius = 100.0

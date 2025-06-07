@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var max_health := 30
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var damage_particle_color: Color = Color(1, 1, 1) # Default white
 
 var knockback_vector := Vector2.ZERO
 
@@ -45,6 +46,7 @@ func take_damage(amount: int, source: Node) -> void:
 
 	# Transition to hurt state
 	VFXManager.spawn_hit_flash(self)
+	VFXManager.spawn_damage_particles(self, direction, damage_particle_color)
 	
 	var state_machine = $StateMachine
 	if health <= 0:
