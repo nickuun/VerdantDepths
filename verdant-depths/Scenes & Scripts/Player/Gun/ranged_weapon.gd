@@ -35,6 +35,8 @@ func initialize():
 	_current_ammo = gun_data.get("current_ammo", clip_size) # use saved value or start full
 	_reloading = false
 	_can_fire = true
+	gun_ui.update_ui()
+	gun_ui.update_clip_ammo(_current_ammo)
 
 func _process(_delta):
 	look_at(get_global_mouse_position())

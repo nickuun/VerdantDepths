@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c327cy6sgy8e4"]
+[gd_scene load_steps=42 format=3 uid="uid://c327cy6sgy8e4"]
 
 [ext_resource type="Script" uid="uid://jjfjno47qpi7" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.gd" id="1_huopp"]
 [ext_resource type="Texture2D" uid="uid://bjxfgtnwak81k" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
@@ -155,16 +155,20 @@ atlas = ExtResource("5_7y0kq")
 region = Rect2(160, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mp55f"]
-atlas = ExtResource("5_7y0kq")
-region = Rect2(32, 32, 16, 32)
+atlas = ExtResource("7_pqk26")
+region = Rect2(96, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l135d"]
-atlas = ExtResource("5_7y0kq")
-region = Rect2(48, 32, 16, 32)
+atlas = ExtResource("7_pqk26")
+region = Rect2(96, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_460jd"]
-atlas = ExtResource("5_7y0kq")
-region = Rect2(64, 32, 16, 32)
+atlas = ExtResource("7_pqk26")
+region = Rect2(96, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33417"]
+atlas = ExtResource("7_pqk26")
+region = Rect2(96, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nyw2"]
 atlas = ExtResource("7_pqk26")
@@ -269,6 +273,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_460jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33417")
 }],
 "loop": true,
 "name": &"Potato",

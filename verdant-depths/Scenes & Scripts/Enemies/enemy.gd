@@ -44,6 +44,8 @@ func take_damage(amount: int, source: Node) -> void:
 	knockback_vector = direction * strength
 
 	# Transition to hurt state
+	VFXManager.spawn_hit_flash(self)
+	
 	var state_machine = $StateMachine
 	if health <= 0:
 		die()

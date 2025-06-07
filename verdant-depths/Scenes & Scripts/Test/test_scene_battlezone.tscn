@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=16 format=4 uid="uid://dr7qhicixjjxb"]
 
-[ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
+[ext_resource type="Texture2D" uid="uid://rrkxve3dogfu" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
 [ext_resource type="Script" uid="uid://tu6fwipjfx5t" path="res://Scenes & Scripts/UI/ActionTools/toolbar.gd" id="2_wk7hc"]
 [ext_resource type="PackedScene" uid="uid://dfu5a0yu3etxr" path="res://Scenes & Scripts/Player/player.tscn" id="3_ugtvx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
 [ext_resource type="PackedScene" uid="uid://bdvwvnopgshwd" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.tscn" id="13_6sl0t"]
 [ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_1l1w0"]
+[ext_resource type="PackedScene" uid="uid://bx75elbrvu55o" path="res://Scenes & Scripts/Helpers/Effects/HitFlash/hit_flash.tscn" id="15_pwik8"]
 
 [node name="TestSceneHouseTilemap" type="Node2D"]
 y_sort_enabled = true
@@ -101,7 +102,7 @@ tile_map_data = PackedByteArray("AACHAAsABgABAAAAAACHAAwABgAAAAEAAACHAA0ABgAAAAI
 tile_set = ExtResource("2_pwik8")
 
 [node name="Player" parent="." node_paths=PackedStringArray("health_ui") instance=ExtResource("3_ugtvx")]
-position = Vector2(346, 200)
+position = Vector2(327, 188)
 health_ui = NodePath("../UI/PlayerHealthUI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -117,7 +118,10 @@ position = Vector2(437, 200)
 position = Vector2(9, 174)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("10_hevf4")]
-position = Vector2(385, 228)
+position = Vector2(397, 245)
 max_health = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("11_xy0ay")]
+
+[node name="HitFlash" parent="." instance=ExtResource("15_pwik8")]
+position = Vector2(364, 212)

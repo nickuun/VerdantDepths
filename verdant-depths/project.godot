@@ -25,6 +25,7 @@ TimeManager="*res://Scenes & Scripts/Globals/TimeManager.gd"
 PlantManager="*res://Scenes & Scripts/Globals/PlantManager.gd"
 GameState="*res://Scenes & Scripts/Globals/GameState.gd"
 InventoryManager="*res://Scenes & Scripts/Globals/InventoryManager.gd"
+VFXManager="*res://Scenes & Scripts/Globals/VFXManager.gd"
 
 [display]
 
