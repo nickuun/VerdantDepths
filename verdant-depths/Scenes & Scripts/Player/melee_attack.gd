@@ -13,7 +13,7 @@ extends NodeState
 @export var combo_input_window := 1.3
 @export var combo_cooldown := 0.6
 @export var movement_influence := 0.1
-@export var lunge_distance := 30.0
+@export var lunge_distance := 35.0
 @export var lunge_speed := 120.0
 
 var current_attack := 0  # Only for local ease, but sourced from ComboManager
@@ -115,8 +115,12 @@ func _on_physics_process(delta: float) -> void:
 		if move_input != Vector2.ZERO:
 			lunge_vec += move_input.normalized() * 50 * movement_influence
 
-		player.velocity = lunge_vec
+		player.velocity = lunge_vec + player.recoil_vector
+
 		player.move_and_slide()
+		# Decay recoil over time
+		player.recoil_vector = player.recoil_vector.move_toward(Vector2.ZERO, 1000 * delta)
+
 
 		# End attack motion
 		if timer >= attack_durations[current_attack]:

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var max_health: int = 6
 var current_health: int
 @export var health_ui: PlayerHealthUI
+var recoil_vector: Vector2 = Vector2.ZERO
 
 var last_direction: Vector2  # Track last direction for idle animation
 var is_hurt: bool = false
@@ -15,6 +16,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:	
 	ComboManager.update(delta)
+	
 
 func _on_hit_component_area_entered(area: Area2D) -> void:
 	print(area.name)
@@ -23,6 +25,7 @@ func _on_hit_component_area_entered(area: Area2D) -> void:
 		#var damage = GameState.get_current_plant_data().damage
 		var damage = 1
 		body.take_damage(damage, self)
+		apply_recoil_from_attack(body.global_position)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("PLAYER TAKE DAMAGE")
@@ -55,3 +58,7 @@ func enter_hurt_state(source_position: Vector2) -> void:
 func die():
 	print("Player died.")
 	#queue_free()  # Or trigger a death animation, respawn, etc.
+
+func apply_recoil_from_attack(source_position: Vector2, strength: float = 100.0):
+	var dir = (global_position - source_position).normalized()
+	recoil_vector = dir * strength
