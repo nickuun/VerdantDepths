@@ -14,7 +14,7 @@ func update_ui():
 	var gun_data = InventoryManager.get_current_gun()
 
 	# Play gun icon animation
-	#gun_icon.play(gun_data.get("crop_type", "carrot"))
+	gun_icon.play(gun_data.get("crop_type", "carrot"))
 
 	# Clear old crop icons
 	for icon in crop_icons:
