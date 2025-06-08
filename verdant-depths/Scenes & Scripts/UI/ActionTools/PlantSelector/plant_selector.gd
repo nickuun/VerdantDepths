@@ -10,9 +10,11 @@ var is_open := false
 
 func _ready():
 	hide()
-	var toolbar = self.get_parent()
+	var toolbar = self.get_parent().get_parent()
 	if toolbar:
+		print("✅ PlantSelector connected to Toolbar")
 		toolbar.connect("tool_selected", Callable(self, "_on_tool_selected"))
+
 
 	button_template.visible = false  # Hide template
 	update_crop_buttons()
@@ -20,20 +22,29 @@ func _ready():
 func _on_tool_selected(tool_type):
 	print("Tool selected:", tool_type)
 	if tool_type == "Plant":
-		open()
+		if is_open:
+			close()
+		else:
+			open()
 	else:
 		if is_open:
 			close()
 
+
 func open():
+	print("open")
 	update_crop_buttons()  # 🆕 refresh based on current inventory
 	show()
 	is_open = true
 	animate_slide(Vector2(0, -27))
 
 func close():
+	print("close")
 	is_open = false
-	animate_slide(Vector2(0.5, 26))  # off-screen
+	var tween = create_tween()
+	tween.tween_property(self, "position", Vector2(0.5, 26), animation_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(Callable(self, "hide"))
+
 
 func animate_slide(target_pos: Vector2):
 	var tween = create_tween()
@@ -66,3 +77,8 @@ func update_crop_buttons():
 		new_button.modulate = Color(1, 1, 1, 1) if has_ammo else Color(1, 1, 1, 0.4)
 
 		button_container.add_child(new_button)
+
+func _unhandled_input(event):
+	if is_open and event is InputEventMouseButton and event.pressed:
+		if not get_global_rect().has_point(get_global_mouse_position()):
+			close()
