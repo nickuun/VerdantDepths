@@ -17,3 +17,4 @@ func _on_physics_process(delta):
 func _on_next_transitions():
 	if not animation_player.is_playing():
 		emit_signal("transition", post_attack_state_name)
+		

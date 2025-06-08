@@ -4,6 +4,7 @@ extends Control
 @onready var gun_icon = $GunIcon
 @onready var crop_icon_template = $CropIconTemplate
 var crop_icons: Array = []
+var animation = "carrot"
 
 func _process(_delta):
 	var gun_data = InventoryManager.get_current_gun()
@@ -14,7 +15,8 @@ func update_ui():
 	var gun_data = InventoryManager.get_current_gun()
 
 	# Play gun icon animation
-	gun_icon.play(gun_data.get("crop_type", "carrot"))
+	animation = gun_data.get("crop_type", "carrot")
+	gun_icon.play(animation)
 
 	# Clear old crop icons
 	for icon in crop_icons:
@@ -31,7 +33,10 @@ func update_ui():
 		icon.position = crop_icon_template.position + Vector2(i * 10, 0)
 		add_child(icon)
 		crop_icons.append(icon)
+		crop_icon_template.play(animation)
+		
 
 func update_clip_ammo(current_ammo: int):
 	for i in range(crop_icons.size()):
 		crop_icons[i].modulate.a = 1.0 if i < current_ammo else 0.2
+		crop_icon_template.play(animation)

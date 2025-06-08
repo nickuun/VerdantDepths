@@ -27,6 +27,7 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 [node name="CustomMouse" parent="UI" instance=ExtResource("13_6sl0t")]
 
 [node name="TestSprite" type="Sprite2D" parent="UI"]
+visible = false
 position = Vector2(6.5, 171.5)
 texture = ExtResource("1_8043m")
 

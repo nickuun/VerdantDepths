@@ -29,14 +29,14 @@ func _ready():
 		"reload_time": 1.0
 	})
 
-	add_gun({
-		"name": "Corn Shotgun",
-		"crop_type": "corn",
-		"fire_rate": 2.0,
-		"shot_type": "shotgun",
-		"clip_size": 2,
-		"reload_time": 1.5
-	})
+	#add_gun({
+		#"name": "Corn Shotgun",
+		#"crop_type": "corn",
+		#"fire_rate": 2.0,
+		#"shot_type": "shotgun",
+		#"clip_size": 2,
+		#"reload_time": 1.5
+	#})
 	
 	add_gun({
 	"name": "Pumpkin Cannon",
