@@ -1,9 +1,9 @@
 [gd_scene load_steps=38 format=3 uid="uid://b818nrfltg6i7"]
 
-[ext_resource type="Texture2D" uid="uid://bp2qdjvuy8j7e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="1_iubrc"]
+[ext_resource type="Texture2D" uid="uid://dnd1l42mbt30e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="1_iubrc"]
 [ext_resource type="Script" uid="uid://t75vwq58q75k" path="res://Scenes & Scripts/UI/ActionTools/PlantSelector/plant_selector.gd" id="1_vy7yw"]
-[ext_resource type="Texture2D" uid="uid://b58oso703xri8" path="res://Sprites/Farming/crops/crops - all.png" id="3_l6k77"]
-[ext_resource type="Texture2D" uid="uid://bmi7a8r4k2meq" path="res://Sprites/Farming/crops/SunnysideCrops.png" id="4_l6k77"]
+[ext_resource type="Texture2D" uid="uid://vgv1cihf6qg" path="res://Sprites/Farming/crops/crops - all.png" id="3_l6k77"]
+[ext_resource type="Texture2D" uid="uid://2o8qipmcsrui" path="res://Sprites/Farming/crops/SunnysideCrops.png" id="4_l6k77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afckb"]
 atlas = ExtResource("3_l6k77")

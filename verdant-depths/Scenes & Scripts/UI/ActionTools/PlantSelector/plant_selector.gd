@@ -15,22 +15,7 @@ func _ready():
 		toolbar.connect("tool_selected", Callable(self, "_on_tool_selected"))
 
 	button_template.visible = false  # Hide template
-
-	for crop in InventoryManager.crop_ammo.keys():
-		if not InventoryManager.has_seen_crop(crop):
-			continue  # Skip crops never seen before
-
-		var new_button = button_template.duplicate()
-		new_button.visible = true
-		new_button.name = crop
-		new_button.connect("pressed", Callable(self, "_on_plant_button_pressed").bind(crop))
-		new_button.get_child(0).play(crop)
-
-		var has_ammo = InventoryManager.get_crop_ammo(crop) > 0
-		new_button.disabled = not has_ammo
-		new_button.modulate = Color(1, 1, 1, 1) if has_ammo else Color(1, 1, 1, 0.4)
-
-		button_container.add_child(new_button)
+	update_crop_buttons()
 
 func _on_tool_selected(tool_type):
 	print("Tool selected:", tool_type)
@@ -41,9 +26,10 @@ func _on_tool_selected(tool_type):
 			close()
 
 func open():
+	update_crop_buttons()  # 🆕 refresh based on current inventory
 	show()
 	is_open = true
-	animate_slide(Vector2(0, -27))  # on-screen position
+	animate_slide(Vector2(0, -27))
 
 func close():
 	is_open = false
@@ -57,3 +43,26 @@ func _on_plant_button_pressed(plant_name: String):
 	GameState.current_plant_name = plant_name
 	print("selected new plant:", plant_name)
 	close()
+
+func update_crop_buttons():
+	# Clear all buttons except the template
+	for child in button_container.get_children():
+		if child != button_template:
+			child.queue_free()
+
+	for crop in InventoryManager.crop_ammo.keys():
+		if not InventoryManager.has_seen_crop(crop):
+			continue  # Skip crops never seen before
+
+		var new_button = button_template.duplicate()
+		new_button.visible = true
+		new_button.name = crop
+		new_button.connect("pressed", Callable(self, "_on_plant_button_pressed").bind(crop))
+		new_button.get_child(0).animation = (crop)
+		new_button.get_child(0).frame = (4)
+
+		var has_ammo = InventoryManager.get_crop_ammo(crop) > 0
+		new_button.disabled = not has_ammo
+		new_button.modulate = Color(1, 1, 1, 1) if has_ammo else Color(1, 1, 1, 0.4)
+
+		button_container.add_child(new_button)

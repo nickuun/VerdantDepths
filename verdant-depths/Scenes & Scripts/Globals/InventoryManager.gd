@@ -7,7 +7,7 @@ var crop_ammo: Dictionary = {
 	"pumpkin": 0,
 	"wheat": 0
 }
-
+var coins = 0
 var seen_crops: Dictionary = {} # New: track whether we've seen a crop at all
 var guns: Array = []
 var selected_gun_index: int = 0
@@ -58,6 +58,7 @@ func _ready():
 	})
 
 func add_crop(crop_name: String, amount: int):
+	print("adding crop: ", crop_name, " x ", amount)
 	crop_ammo[crop_name] = crop_ammo.get(crop_name, 0) + amount
 	seen_crops[crop_name] = true
 	
@@ -87,3 +88,10 @@ func switch_gun(index: int):
 	if index >= 0 and index < guns.size():
 		selected_gun_index = index
 		print("selected_gun", guns[selected_gun_index])
+
+func add_coins(amount: int):
+	coins += amount
+	print("Global Coins: ", coins)
+
+func get_coins() -> int:
+	return coins

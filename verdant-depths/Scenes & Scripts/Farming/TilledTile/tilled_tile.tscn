@@ -1,12 +1,12 @@
 [gd_scene load_steps=46 format=3 uid="uid://c327cy6sgy8e4"]
 
 [ext_resource type="Script" uid="uid://jjfjno47qpi7" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.gd" id="1_huopp"]
-[ext_resource type="Texture2D" uid="uid://bjxfgtnwak81k" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
+[ext_resource type="Texture2D" uid="uid://c218ldbvve1qv" path="res://Sprites/Farming/misc.png" id="1_llvpn"]
 [ext_resource type="PackedScene" uid="uid://bhjmg5hohwmen" path="res://Scenes & Scripts/Drops/Items/item_drop.tscn" id="2_apydh"]
-[ext_resource type="Texture2D" uid="uid://dc7sbjljrg8ty" path="res://Sprites/Farming/dug_land.png" id="4_4yawx"]
-[ext_resource type="Texture2D" uid="uid://b58oso703xri8" path="res://Sprites/Farming/crops/crops - all.png" id="5_7y0kq"]
+[ext_resource type="Texture2D" uid="uid://dlk10ei6uyt6u" path="res://Sprites/Farming/dug_land.png" id="4_4yawx"]
+[ext_resource type="Texture2D" uid="uid://vgv1cihf6qg" path="res://Sprites/Farming/crops/crops - all.png" id="5_7y0kq"]
 [ext_resource type="Shader" uid="uid://c4ievhw4652k4" path="res://Scenes & Scripts/Shaders/wind_sway.gdshader" id="5_pqk26"]
-[ext_resource type="Texture2D" uid="uid://bmi7a8r4k2meq" path="res://Sprites/Farming/crops/SunnysideCrops.png" id="7_pqk26"]
+[ext_resource type="Texture2D" uid="uid://2o8qipmcsrui" path="res://Sprites/Farming/crops/SunnysideCrops.png" id="7_pqk26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb3p5"]
 size = Vector2(16, 16)

@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var drop_type = "carrot"
+
 @export var arc_height := randf_range(24, 48)
 @export var lifetime := 8.0
 @export var time_to_land := 0.4 + randf_range(-0.05, 0.05)
@@ -25,14 +27,25 @@ func _process(delta):
 
 		if t >= 1.0:
 			landed = true
-			$CollisionShape2D.set_deferred("disabled", false)
-			# Optional: play landing sound/particles
+			_on_landed()
 	else:
 		lifetime -= delta
 		if lifetime <= 0.0:
 			queue_free()
 
 func _on_body_entered(body):
-	if body.name == "Player":  # Replace with actual player check
-		# Add to inventory, score, ammo, etc.
-		queue_free()
+	if body.is_in_group("player"):
+		print("player picked up: ", drop_type)
+
+		if drop_type == "coin":
+			InventoryManager.add_coins(1)
+		else:
+			InventoryManager.add_crop(drop_type, 1)
+
+		self.queue_free()
+
+func _on_landed():
+	$CollisionShape2D.set_deferred("disabled", false)
+	#if has_node("AnimatedSprite2D"):
+		#$AnimatedSprite2D.play(drop_animation)
+	print("Drop landed:", drop_type)
