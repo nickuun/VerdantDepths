@@ -32,10 +32,10 @@ position = Vector2(6.5, 171.5)
 texture = ExtResource("1_8043m")
 
 [node name="Toolbar" type="HBoxContainer" parent="UI"]
-offset_left = 218.0
-offset_top = 158.0
-offset_right = 319.0
-offset_bottom = 179.0
+offset_left = 234.0
+offset_top = 157.0
+offset_right = 316.0
+offset_bottom = 177.0
 script = ExtResource("2_wk7hc")
 
 [node name="ActionToolButton3" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
@@ -60,10 +60,6 @@ tool_type = "Dig"
 [node name="ActionToolButton4" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
 layout_mode = 2
 tool_type = "Water"
-
-[node name="ActionToolButton5" parent="UI/Toolbar" instance=ExtResource("5_8043m")]
-layout_mode = 2
-tool_type = "Shoot"
 
 [node name="Time" parent="UI" instance=ExtResource("4_oyabj")]
 offset_left = 239.5

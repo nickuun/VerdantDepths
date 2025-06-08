@@ -78,6 +78,7 @@ func update_crop_buttons():
 
 		button_container.add_child(new_button)
 
+
 func _unhandled_input(event):
 	if is_open and event is InputEventMouseButton and event.pressed:
 		if not get_global_rect().has_point(get_global_mouse_position()):
