@@ -26,7 +26,8 @@ func _ready():
 		"fire_rate": 5.0,
 		"shot_type": "single",
 		"clip_size": 6,
-		"reload_time": 1.0
+		"reload_time": 1.0,
+		"damage": 3
 	})
 
 	#add_gun({
@@ -44,7 +45,8 @@ func _ready():
 	"fire_rate": 1.0,
 	"shot_type": "charged",
 	"clip_size": 1,
-	"reload_time": 2.0
+	"reload_time": 2.0,
+	"damage": 12
 	})
 
 
@@ -54,7 +56,8 @@ func _ready():
 		"fire_rate": 1.0,
 		"shot_type": "sniper",
 		"clip_size": 1,
-		"reload_time": 2.0
+		"reload_time": 2.0,
+		"damage": 20
 	})
 
 func add_crop(crop_name: String, amount: int):
