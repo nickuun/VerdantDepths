@@ -1184,9 +1184,10 @@ damage_particle_color = Color(0.321569, 0.407843, 0.545098, 1)
 detection_radius = 100.0
 animated_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="EnemyChaseState" parent="StateMachine" index="1" node_paths=PackedStringArray("animated_sprite")]
+[node name="EnemyChaseState" parent="StateMachine" index="1" node_paths=PackedStringArray("animated_sprite", "hurtbox")]
 lose_radius = 120.0
 animated_sprite = NodePath("../../AnimatedSprite2D")
+hurtbox = NodePath("../../HurtComponent")
 
 [node name="EnemyPreAttackState" parent="StateMachine" index="2" node_paths=PackedStringArray("animation_player")]
 animation_player = NodePath("../../AnimationPlayer")

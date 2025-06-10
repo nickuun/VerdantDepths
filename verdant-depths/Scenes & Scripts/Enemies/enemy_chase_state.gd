@@ -8,9 +8,12 @@ extends NodeState
 @export var animated_sprite: AnimatedSprite2D
 
 var parent: CharacterBody2D
+@export var hurtbox: Area2D
 var player: Node2D
 
 func _on_enter():
+	if hurtbox:
+		hurtbox.get_child(0).disabled = true
 	parent = get_parent().get_parent()
 	player = get_tree().get_first_node_in_group("player")
 
