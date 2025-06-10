@@ -96,5 +96,4 @@ func spawn_drop():
 		var offset = Vector2.RIGHT.rotated(angle) * distance
 		var target = global_position + offset
 
-		#drop.plant_data = plant_data  # ← this tells the drop what plant it is
 		drop.launch_to(target)

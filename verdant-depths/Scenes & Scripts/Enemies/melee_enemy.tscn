@@ -1177,6 +1177,7 @@ _data = {
 radius = 17.0294
 
 [node name="MeleeEnemy" instance=ExtResource("1_fjrmb")]
+max_health = 30
 damage_particle_color = Color(0.321569, 0.407843, 0.545098, 1)
 
 [node name="EnemyIdleState" parent="StateMachine" index="0" node_paths=PackedStringArray("animated_sprite")]

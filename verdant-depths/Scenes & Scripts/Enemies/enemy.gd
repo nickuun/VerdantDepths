@@ -27,9 +27,8 @@ func take_damage(amount: int, source: Node) -> void:
 	#ScreenShakeManager.shake(0.3, 0.2)
 	ScreenShakeManager.shake(0.4, 0.2)
 
-	animated_sprite.animation = "Hurt"
 	animated_sprite.frame = 0
-	animation_player.play("RESET")
+	animated_sprite.play("Hurt")
 	# Flip toward attacker
 	var dir = (animated_sprite.global_position - source.global_position).normalized()
 	animated_sprite.flip_h = dir.x < 0
