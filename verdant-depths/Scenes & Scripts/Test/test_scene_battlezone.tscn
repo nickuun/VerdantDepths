@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=17 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8ektjlk1kcwu" path="res://Scenes & Scripts/UI/PlayerHealth/player_health_ui.tscn" id="6_2rv7u"]
 [ext_resource type="PackedScene" uid="uid://cjm7625dcmyf8" path="res://Scenes & Scripts/UI/GunUI/gun_ui.tscn" id="8_4mm4l"]
 [ext_resource type="PackedScene" uid="uid://b8bvkit6536iy" path="res://Scenes & Scripts/Enemies/melee_enemy.tscn" id="10_hevf4"]
+[ext_resource type="Script" uid="uid://jkxd62nd34y8" path="res://Scenes & Scripts/Camera/CameraPivot.gd" id="11_ugtvx"]
 [ext_resource type="PackedScene" uid="uid://dfcuv736hiu45" path="res://Scenes & Scripts/Helpers/Spawners/EnemySpawner/enemy_spawner.tscn" id="11_xy0ay"]
 [ext_resource type="PackedScene" uid="uid://ddu5l8xibdase" path="res://Scenes & Scripts/Objects/Training/Dummy/dummy.tscn" id="12_u77y1"]
 [ext_resource type="PackedScene" uid="uid://bdvwvnopgshwd" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.tscn" id="13_6sl0t"]
@@ -102,7 +103,10 @@ tile_set = ExtResource("2_pwik8")
 position = Vector2(327, 188)
 health_ui = NodePath("../UI/PlayerHealthUI")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="CameraPivot" type="Node2D" parent="Player"]
+script = ExtResource("11_ugtvx")
+
+[node name="Camera2D" type="Camera2D" parent="Player/CameraPivot"]
 zoom = Vector2(2, 2)
 
 [node name="Dummy" parent="." instance=ExtResource("12_u77y1")]

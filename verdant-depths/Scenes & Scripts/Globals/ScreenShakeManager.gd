@@ -5,6 +5,7 @@ class_name ShakeData
 var strength = 0.0
 var frequency = 1.0
 var time_left = 0.0
+var camera_influence_offset := Vector2.ZERO
 
 # Active shakes
 var active_shakes: Array[ShakeData] = []
@@ -44,7 +45,7 @@ func _process(delta):
 		shake.time_left -= delta
 
 	# Final offset (blend shakes)
-	original_camera.offset = total_offset / active_shakes.size()
+	original_camera.offset = camera_influence_offset + (total_offset / active_shakes.size())
 
 func _find_camera():
 	# First camera found in current scene

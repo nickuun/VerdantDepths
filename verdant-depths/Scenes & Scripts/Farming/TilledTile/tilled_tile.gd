@@ -12,6 +12,8 @@ var plant_data: PlantData = null
 var has_seed := false
 var growth_stage := 0  # 0 = none, 1 = seed, 2 = sprout, 3 = plant
 
+var plant_name
+
 func _ready() -> void:
 	print("TILE PLACED ")
 
@@ -24,7 +26,7 @@ func plant_seed():
 		print("No valid plant data for:", GameState.current_plant_name)
 		return
 	
-	var plant_name = GameState.current_plant_name
+	plant_name = GameState.current_plant_name
 	var has_crop = InventoryManager.get_crop_ammo(plant_name) > 0
 
 	if not has_crop:
@@ -87,7 +89,7 @@ func spawn_drop():
 		get_tree().current_scene.add_child(drop)
 
 		drop.global_position = global_position
-		drop.drop_type = GameState.current_plant_name
+		drop.drop_type = plant_name
 
 		var angle = randf_range(0, TAU)  # 360° in radians
 		var distance = randf_range(32, 64)

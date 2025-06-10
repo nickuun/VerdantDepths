@@ -38,15 +38,12 @@ func _on_enter() -> void:
 	else:
 		start_attack(true)
 
-
-
 func _on_exit() -> void:
 	weaponSprite.play("empty")
 	player.velocity = Vector2.ZERO
 	attack_started = false
 	awaiting_input = false
 	CooldownTracker.start_cooldown(combo_cooldown)
-
 
 func start_attack(force_fresh := false):
 	if force_fresh:
