@@ -291,10 +291,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vy7yw")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="."]
+[node name="ButtonContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 19.0
+columns = 4
 
 [node name="PlantButton" type="TextureButton" parent="ButtonContainer"]
 layout_mode = 2

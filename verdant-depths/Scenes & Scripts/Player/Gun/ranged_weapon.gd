@@ -139,6 +139,8 @@ func _fire_single():
 	bullet.rotation = muzzle.global_rotation
 	var direction = Vector2.RIGHT.rotated(rotation)
 	bullet.direction = direction
+	bullet.crop_type = crop_type
+	bullet.damage = InventoryManager.get_current_gun().get("damage", 1)
 	bullet.initialize()
 	get_tree().current_scene.add_child(bullet)
 	gun_ui.update_clip_ammo(_current_ammo)
@@ -151,6 +153,8 @@ func _fire_shotgun():
 		bullet.rotation = muzzle.global_rotation + spread
 		var direction = Vector2.RIGHT.rotated(rotation)
 		bullet.direction = direction
+		bullet.crop_type = crop_type
+		bullet.damage = InventoryManager.get_current_gun().get("damage", 1)
 		bullet.initialize()
 		get_tree().current_scene.add_child(bullet)
 		gun_ui.update_clip_ammo(_current_ammo)
@@ -185,6 +189,8 @@ func _fire_charged():
 	bullet.rotation = muzzle.global_rotation
 	var direction = Vector2.RIGHT.rotated(rotation)
 	bullet.direction = direction
+	bullet.crop_type = crop_type
+	bullet.damage = InventoryManager.get_current_gun().get("damage", 1)
 	bullet.scale *= 3.0
 	bullet.initialize()
 	get_tree().current_scene.add_child(bullet)

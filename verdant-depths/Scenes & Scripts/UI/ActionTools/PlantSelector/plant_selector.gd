@@ -30,13 +30,23 @@ func _on_tool_selected(tool_type):
 		if is_open:
 			close()
 
-
 func open():
 	print("open")
-	update_crop_buttons()  # 🆕 refresh based on current inventory
+	update_crop_buttons()
+
+	# Calculate how many rows of buttons there will be
+	var total_buttons := 0
+	for crop in InventoryManager.crop_ammo.keys():
+		if InventoryManager.has_seen_crop(crop):
+			total_buttons += 1
+
+	var columns = button_container.columns
+	var rows := int(ceil(total_buttons / float(columns)))
+	var y_offset := -27 - ((rows - 1) * 20)  # each row above the first pushes up 20px
+
 	show()
 	is_open = true
-	animate_slide(Vector2(0, -27))
+	animate_slide(Vector2(0, y_offset))
 
 func close():
 	print("close")
@@ -61,23 +71,34 @@ func update_crop_buttons():
 		if child != button_template:
 			child.queue_free()
 
+	var crops := []
 	for crop in InventoryManager.crop_ammo.keys():
 		if not InventoryManager.has_seen_crop(crop):
-			continue  # Skip crops never seen before
+			continue
+		var amount = InventoryManager.get_crop_ammo(crop)
+		var enabled = amount > 0
+		crops.append({ "name": crop, "amount": amount, "enabled": enabled })
 
+	# Sort crops: enabled first, then by amount descending
+	crops.sort_custom(func(a, b):
+		if a.enabled != b.enabled:
+			return a.enabled > b.enabled  # true before false
+		return a.amount > b.amount  # higher first
+	)
+
+	for entry in crops:
+		var crop = entry.name
 		var new_button = button_template.duplicate()
 		new_button.visible = true
 		new_button.name = crop
 		new_button.connect("pressed", Callable(self, "_on_plant_button_pressed").bind(crop))
-		new_button.get_child(0).animation = (crop)
-		new_button.get_child(0).frame = (4)
+		new_button.get_child(0).animation = crop
+		new_button.get_child(0).frame = 4
 
-		var has_ammo = InventoryManager.get_crop_ammo(crop) > 0
-		new_button.disabled = not has_ammo
-		new_button.modulate = Color(1, 1, 1, 1) if has_ammo else Color(1, 1, 1, 0.4)
+		new_button.disabled = not entry.enabled
+		new_button.modulate = Color(1, 1, 1, 1) if entry.enabled else Color(1, 1, 1, 0.4)
 
 		button_container.add_child(new_button)
-
 
 func _unhandled_input(event):
 	if is_open and event is InputEventMouseButton and event.pressed:
