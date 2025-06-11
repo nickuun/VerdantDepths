@@ -26,6 +26,7 @@ PlantManager="*res://Scenes & Scripts/Globals/PlantManager.gd"
 GameState="*res://Scenes & Scripts/Globals/GameState.gd"
 InventoryManager="*res://Scenes & Scripts/Globals/InventoryManager.gd"
 VFXManager="*res://Scenes & Scripts/Globals/VFXManager.gd"
+RNG="*res://Scenes & Scripts/Globals/SeedManager.gd"
 
 [display]
 

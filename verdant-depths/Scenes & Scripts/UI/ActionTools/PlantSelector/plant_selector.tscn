@@ -309,10 +309,10 @@ animation = &"wheat"
 
 [node name="CountLabel" type="Label" parent="ButtonContainer/PlantButton"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = -6.0
-offset_right = 23.0
-offset_bottom = 11.0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 27.0
+offset_bottom = 14.0
 theme_override_colors/font_color = Color(0.752941, 0.796078, 0.862745, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
