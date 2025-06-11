@@ -97,6 +97,11 @@ func update_crop_buttons():
 
 		new_button.disabled = not entry.enabled
 		new_button.modulate = Color(1, 1, 1, 1) if entry.enabled else Color(1, 1, 1, 0.4)
+		
+		var label = new_button.get_node("CountLabel")
+		label.visible = true
+		label.text = str(entry.amount)
+		label.modulate = Color(1, 1, 1, 1) if entry.enabled else Color(1, 1, 1, 0.4)
 
 		button_container.add_child(new_button)
 
