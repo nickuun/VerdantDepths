@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dr7qhicixjjxb"]
+[gd_scene load_steps=22 format=4 uid="uid://dr7qhicixjjxb"]
 
 [ext_resource type="Texture2D" uid="uid://dtw0d0dnh6t6" path="res://Sprites/UI/Icons/happiness_04.png" id="1_8043m"]
 [ext_resource type="TileSet" uid="uid://du8q0iq7m80jl" path="res://Tilesets/game_tile_set.tres" id="2_pwik8"]
@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://bdvwvnopgshwd" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.tscn" id="13_6sl0t"]
 [ext_resource type="PackedScene" uid="uid://bmns64utdb7bc" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.tscn" id="14_1l1w0"]
 [ext_resource type="PackedScene" uid="uid://bx75elbrvu55o" path="res://Scenes & Scripts/Helpers/Effects/HitFlash/hit_flash.tscn" id="15_pwik8"]
+[ext_resource type="Texture2D" uid="uid://bcgsivtr676fx" path="res://Sprites/UI/Icons/arrow_left.png" id="19_eb5ky"]
+[ext_resource type="Script" uid="uid://bcpaq0vw232ug" path="res://Scenes & Scripts/UI/Keychain/Keychain.gd" id="19_m1umj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1umj"]
+radius = 7.0
 
 [node name="TestSceneHouseTilemap" type="Node2D"]
 y_sort_enabled = true
@@ -27,7 +32,20 @@ texture_filter = 1
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
-[node name="CustomMouse" parent="UI" instance=ExtResource("13_6sl0t")]
+[node name="CustomMouse" parent="UI" node_paths=PackedStringArray("JointB") instance=ExtResource("13_6sl0t")]
+JointB = NodePath("Keychain")
+
+[node name="Keychain" type="RigidBody2D" parent="UI/CustomMouse"]
+position = Vector2(12.5, 0)
+collision_layer = 8192
+collision_mask = 8192
+script = ExtResource("19_m1umj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/CustomMouse/Keychain"]
+shape = SubResource("CircleShape2D_m1umj")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/CustomMouse/Keychain"]
+texture = ExtResource("19_eb5ky")
 
 [node name="TestSprite" type="Sprite2D" parent="UI"]
 visible = false

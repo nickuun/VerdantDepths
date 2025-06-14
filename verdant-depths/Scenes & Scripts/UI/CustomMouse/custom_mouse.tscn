@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdvwvnopgshwd"]
+[gd_scene load_steps=8 format=3 uid="uid://bdvwvnopgshwd"]
 
 [ext_resource type="Script" uid="uid://dja11prsi8v27" path="res://Scenes & Scripts/UI/CustomMouse/custom_mouse.gd" id="1_d1qhx"]
-[ext_resource type="Texture2D" uid="uid://w1tuke1hidst" path="res://Sprites/UI/Icons/Sunnyside-Icons.png" id="2_fx6um"]
+[ext_resource type="Texture2D" uid="uid://cmihu2jaa7mh0" path="res://Sprites/UI/Icons/Sunnyside-Icons.png" id="2_fx6um"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1qhx"]
 atlas = ExtResource("2_fx6um")
@@ -46,13 +46,28 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fx6um"]
+radius = 6.0
+
 [node name="CustomMouse" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_d1qhx")
 
-[node name="CursorSprite" type="AnimatedSprite2D" parent="."]
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../CharacterBody2D")
+softness = 2.5
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 8192
+collision_mask = 8192
+
+[node name="CursorSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
 z_index = 10
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_opft3")
 animation = &"click"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_fx6um")
