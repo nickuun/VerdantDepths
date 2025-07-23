@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=2 format=3 uid="uid://ce2u52d1nomaj"]
+
+[ext_resource type="Script" uid="uid://dbktuihecvmh8" path="res://Scenes & Scripts/Globals/PlantData/PlantData.gd" id="1_hjbyr"]
+
+[resource]
+script = ExtResource("1_hjbyr")
+plant_name = "Carrot"
+animation_name = "Carrot"
+growth_time = 10.0
+min_yield = 1
+max_yield = 3
+metadata/_custom_type_script = "uid://dbktuihecvmh8"

@@ -1,0 +1,321 @@
+[gd_scene load_steps=39 format=3 uid="uid://b818nrfltg6i7"]
+
+[ext_resource type="Texture2D" uid="uid://dnd1l42mbt30e" path="res://Sprites/UI/Icons/itemdisc_01.png" id="1_iubrc"]
+[ext_resource type="Script" uid="uid://t75vwq58q75k" path="res://Scenes & Scripts/UI/ActionTools/PlantSelector/plant_selector.gd" id="1_vy7yw"]
+[ext_resource type="Texture2D" uid="uid://vgv1cihf6qg" path="res://Sprites/Farming/crops/crops - all.png" id="3_l6k77"]
+[ext_resource type="Texture2D" uid="uid://2o8qipmcsrui" path="res://Sprites/Farming/crops/SunnysideCrops.png" id="4_l6k77"]
+[ext_resource type="FontFile" uid="uid://ndl4u2nlars5" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="5_8pgpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afckb"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csvug"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya8cj"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pgpu"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6ta5"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygkb2"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1rr"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hot30"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5ij"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xksn0"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1v7m"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s30db"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(128, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu5u7"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so1fg"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(160, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2sj8"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wj2e"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5ix5"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rkqj"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnw8y"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(96, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ku4c"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(96, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv2dm"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(96, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj7jg"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k776f"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csi4y"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8w2a"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3y5d"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyf1u"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t0ru"]
+atlas = ExtResource("3_l6k77")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6k77"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe5oi"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqdyt"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n1jg"]
+atlas = ExtResource("4_l6k77")
+region = Rect2(144, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6ta5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afckb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csvug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya8cj")
+}],
+"loop": false,
+"name": &"beetroot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pgpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ta5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygkb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1rr")
+}],
+"loop": false,
+"name": &"carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hot30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an5ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xksn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1v7m")
+}],
+"loop": false,
+"name": &"corn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s30db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu5u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so1fg")
+}],
+"loop": false,
+"name": &"lettuce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2sj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wj2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5ix5")
+}],
+"loop": false,
+"name": &"onion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rkqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnw8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ku4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv2dm")
+}],
+"loop": false,
+"name": &"potato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj7jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k776f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csi4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8w2a")
+}],
+"loop": false,
+"name": &"pumpkin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3y5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyf1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t0ru")
+}],
+"loop": false,
+"name": &"radish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6k77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe5oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqdyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n1jg")
+}],
+"loop": false,
+"name": &"wheat",
+"speed": 5.0
+}]
+
+[node name="PlantSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vy7yw")
+
+[node name="ButtonContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+columns = 4
+
+[node name="PlantButton" type="TextureButton" parent="ButtonContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_iubrc")
+
+[node name="PlantSprite" type="AnimatedSprite2D" parent="ButtonContainer/PlantButton"]
+position = Vector2(9, 11)
+sprite_frames = SubResource("SpriteFrames_u6ta5")
+animation = &"wheat"
+
+[node name="CountLabel" type="Label" parent="ButtonContainer/PlantButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 27.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.752941, 0.796078, 0.862745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_8pgpu")
+theme_override_font_sizes/font_size = 10
+text = "00"
