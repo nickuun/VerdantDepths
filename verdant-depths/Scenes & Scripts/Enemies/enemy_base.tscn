@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://bpxqehmip0m27"]
+
+[ext_resource type="Script" uid="uid://7n2345e3msp5" path="res://Scenes & Scripts/Enemies/enemy.gd" id="1_vasva"]
+[ext_resource type="Script" uid="uid://bcicq21dalbc1" path="res://Scenes & Scripts/Enemies/enemy_pre_attack_state.gd" id="5_3787e"]
+[ext_resource type="Script" uid="uid://pkmyi6ob7byg" path="res://Scenes & Scripts/Helpers/StateMachines/node_state_machine.gd" id="6_pvj5m"]
+[ext_resource type="Script" uid="uid://bx3o5kg5i88sb" path="res://Scenes & Scripts/Enemies/enemy_attack_state.gd" id="6_vasva"]
+[ext_resource type="Script" uid="uid://cdkxsirgy1vve" path="res://Scenes & Scripts/Enemies/enemy_idle_state.gd" id="7_ufuep"]
+[ext_resource type="Script" uid="uid://c1e5hc57fldh2" path="res://Scenes & Scripts/Enemies/enemy_attack_idle_state.gd" id="7_xoh0k"]
+[ext_resource type="Script" uid="uid://cd8ruxo8l2lwg" path="res://Scenes & Scripts/Enemies/enemy_chase_state.gd" id="8_3bhnu"]
+[ext_resource type="Script" uid="uid://cp85ovmrhstx5" path="res://Scenes & Scripts/Enemies/enemy_hurt_state.gd" id="8_vasva"]
+[ext_resource type="PackedScene" uid="uid://md68ca6jhu82" path="res://Scenes & Scripts/Helpers/Components/hit_component.tscn" id="9_vasva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8118j"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoh0k"]
+
+[node name="BaseEnemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 256
+collision_mask = 259
+motion_mode = 1
+script = ExtResource("1_vasva")
+max_health = null
+damage_particle_color = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8118j")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("6_pvj5m")
+initial_node_state = NodePath("EnemyIdleState")
+
+[node name="EnemyIdleState" type="Node" parent="StateMachine"]
+script = ExtResource("7_ufuep")
+
+[node name="EnemyChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("8_3bhnu")
+attack_state_name = "EnemyPreAttackState"
+
+[node name="EnemyPreAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("5_3787e")
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("6_vasva")
+
+[node name="EnemyAttackIdleState" type="Node" parent="StateMachine"]
+script = ExtResource("7_xoh0k")
+
+[node name="EnemyHurtState" type="Node" parent="StateMachine"]
+script = ExtResource("8_vasva")
+
+[node name="HitComponent" parent="." instance=ExtResource("9_vasva")]
+collision_layer = 256
+collision_mask = 8
+
+[node name="DamageShape" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_xoh0k")
+debug_color = Color(0.815658, 0.335635, 0.597959, 0.42)

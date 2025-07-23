@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmns64utdb7bc"]
+
+[ext_resource type="PackedScene" uid="uid://xeqhj84n5f1s" path="res://Scenes & Scripts/Helpers/Components/ActionPreview/action_preview.tscn" id="1_5dhqo"]
+[ext_resource type="Script" uid="uid://paejljktydto" path="res://Scenes & Scripts/Farming/TillingArea/tilling_area.gd" id="1_r6k70"]
+[ext_resource type="PackedScene" uid="uid://c327cy6sgy8e4" path="res://Scenes & Scripts/Farming/TilledTile/tilled_tile.tscn" id="2_j4x7j"]
+
+[node name="TillingArea" type="Node2D"]
+script = ExtResource("1_r6k70")
+tile_scene = ExtResource("2_j4x7j")
+action_preview = NodePath("ActionPreview")
+
+[node name="ActionPreview" parent="." instance=ExtResource("1_5dhqo")]

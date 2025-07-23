@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dblg63mvmsm12"]
+
+[ext_resource type="Texture2D" uid="uid://l3rhf2f12kja" path="res://Sprites/Items/ItemIcons/book_03f.png" id="1_jckuj"]
+[ext_resource type="Script" uid="uid://cil1pqp240b1o" path="res://Scenes & Scripts/UI/GunModMenu/GunModIcon/gun_mod_icon_.gd" id="2_os48w"]
+
+[node name="GunModIcon" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_jckuj")
+script = ExtResource("2_os48w")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ektjlk1kcwu"]
+
+[ext_resource type="Script" uid="uid://ko4i0qonw7yg" path="res://Scenes & Scripts/UI/PlayerHealth/player_health_ui.gd" id="1_vptdr"]
+[ext_resource type="Texture2D" uid="uid://dobs06j1dundq" path="res://Sprites/UI/PlayerHealth/PlayerHeartsEmpty.png" id="2_iyf3s"]
+[ext_resource type="Texture2D" uid="uid://cjxs801so341p" path="res://Sprites/UI/PlayerHealth/PlayerHeartsFull.png" id="3_gwo5g"]
+[ext_resource type="Texture2D" uid="uid://ditg6qmuahprw" path="res://Sprites/UI/PlayerHealth/PlayerHeartsHalf.png" id="4_oeiak"]
+
+[node name="PlayerHealthUI" type="Control" node_paths=PackedStringArray("full_heart_texture", "half_heart_texture", "empty_heart_texture")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vptdr")
+full_heart_texture = NodePath("Full")
+half_heart_texture = NodePath("Half")
+empty_heart_texture = NodePath("Empty")
+
+[node name="Empty" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_iyf3s")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 15)
+
+[node name="Half" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("4_oeiak")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 15)
+
+[node name="Full" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("3_gwo5g")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 15)

@@ -29,7 +29,8 @@ func _on_next_transitions() -> void:
 	GameInputEvents.movement_input()
 	if GameInputEvents.is_momement_input():
 		transition.emit("Walk")
-	
+		#transition.emit("ActionMove")
+		
 	if player.current_tool == DataTypes.Tools.AxeWood and GameInputEvents.use_tool():
 		transition.emit("Chopping")
 		

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://djb26s8h7ef8o"]
+
+[ext_resource type="Texture2D" uid="uid://b11c1nqspocvl" path="res://Sprites/Environment/Objects/fountain_fast.png" id="1_gi43h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4naas"]
+atlas = ExtResource("1_gi43h")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip78b"]
+atlas = ExtResource("1_gi43h")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tohfw"]
+atlas = ExtResource("1_gi43h")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqe3b"]
+atlas = ExtResource("1_gi43h")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bhbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4naas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip78b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tohfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqe3b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gi43h"]
+radius = 75.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gi43h"]
+vertices = PackedVector2Array(50.6719, -42.7188, 66.4922, -0.539063, 56.2969, 35.9609, 14.6328, 66.3438, -38.3594, 55.9063, -64.1484, 22.3828, -65.8828, -14.7891, -49.3906, -46.8984, -19.2422, -65, 20.6875, -65)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-57, -54, -22, -75, 24, -75, 59, -49, 77, -1, 65, 42, 17, 77, -44, 65, -74, 26, -76, -17)])
+
+[node name="InterestPoint" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2bhbl")
+autoplay = "default"
+frame_progress = 0.295229
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 4.5)
+polygon = PackedVector2Array(-12, -15.5, 13, -15.5, 15, -12.5, 15, 9.5, 13, 12.5, -12, 12.5, -15, 9.5, -15, -12.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gi43h")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_gi43h")
+navigation_layers = 16
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 13.99

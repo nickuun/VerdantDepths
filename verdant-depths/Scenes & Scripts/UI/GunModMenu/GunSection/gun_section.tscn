@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc04lc3cp4ilg"]
+
+[ext_resource type="Texture2D" uid="uid://l3rhf2f12kja" path="res://Sprites/Items/ItemIcons/book_03f.png" id="1_qif0j"]
+[ext_resource type="Texture2D" uid="uid://m3jl2xhlymmo" path="res://Sprites/Items/ItemIcons/book_03g.png" id="2_uhiqx"]
+[ext_resource type="Texture2D" uid="uid://bg4xcwbltxhnc" path="res://Sprites/Items/ItemIcons/book_04b.png" id="3_uiuck"]
+[ext_resource type="Texture2D" uid="uid://bey4shrm0crv8" path="res://Sprites/Items/ItemIcons/book_05c.png" id="4_slplh"]
+[ext_resource type="Texture2D" uid="uid://dgnu3g8cudskv" path="res://Sprites/Items/ItemIcons/book_06b.png" id="5_s4txl"]
+[ext_resource type="Texture2D" uid="uid://bnlvhachu4dhh" path="res://Sprites/Items/ItemIcons/bow_01d.png" id="6_7jk7m"]
+[ext_resource type="Texture2D" uid="uid://bplh2dg6bvqpb" path="res://Sprites/Items/ItemIcons/candy_01a.png" id="7_3qqyt"]
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 114.0
+offset_bottom = 26.0
+
+[node name="GunSection" type="Label" parent="."]
+layout_mode = 2
+offset_right = 114.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "Carrot Launcher - 9000"
+
+[node name="Book03f" type="Sprite2D" parent="."]
+position = Vector2(8, 17)
+texture = ExtResource("1_qif0j")
+
+[node name="Book03g" type="Sprite2D" parent="."]
+position = Vector2(24, 17)
+texture = ExtResource("2_uhiqx")
+
+[node name="Book04b" type="Sprite2D" parent="."]
+position = Vector2(40, 17)
+texture = ExtResource("3_uiuck")
+
+[node name="Book05c" type="Sprite2D" parent="."]
+position = Vector2(57, 17)
+texture = ExtResource("4_slplh")
+
+[node name="Book06b" type="Sprite2D" parent="."]
+position = Vector2(73, 17)
+texture = ExtResource("5_s4txl")
+
+[node name="Bow01d" type="Sprite2D" parent="."]
+position = Vector2(89, 17)
+texture = ExtResource("6_7jk7m")
+
+[node name="Candy01a" type="Sprite2D" parent="."]
+position = Vector2(105, 17)
+texture = ExtResource("7_3qqyt")
